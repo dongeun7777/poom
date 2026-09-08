@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제품 · 품 POOM</title>
+<meta name="description" content="같은 원단으로 배냇 50cm부터 성인 XL까지.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Gothic+A1:wght@300;400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="index.html"><b>품</b><i>POOM</i></a>
+    <span class="pill">런칭 준비 중</span>
+    <ul>
+      <li><a class="lnk" href="products.html">라인</a></li>
+      <li><a class="lnk" href="fabric.html">원단</a></li>
+      <li><a class="lnk" href="care.html">얼룩과 세탁</a></li>
+    </ul>
+    <button class="cartbtn" type="button">장바구니 <span class="cnt">0</span></button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <p class="crumb">
+      <a href="index.html">품</a><span class="sep">/</span><a href="products.html">라인</a><span class="sep">/</span><span data-f="crumb">제품</span>
+    </p>
+
+    <div class="pdp" id="pdp">
+
+      <div>
+        <div class="artpanel t-oat" data-f="artmain"></div>
+        <div class="artrow" data-f="artthumbs"></div>
+      </div>
+
+      <div class="pinfo">
+        <span class="cat" data-f="cat">Sleep</span>
+        <h1 data-f="name">슬립 세트</h1>
+        <p class="price" data-f="price">₩42,000 – 89,000</p>
+        <p class="fabline" data-f="fabric">—</p>
+        <p class="plead" data-f="lead"></p>
+        <p class="desc" data-f="desc"></p>
+
+        <div class="fieldhd">
+          <span>컬러</span>
+          <span class="picked on" data-f="colorname">—</span>
+        </div>
+        <div class="swatches" data-f="colors"></div>
+
+        <div class="fieldhd">
+          <span>사이즈</span>
+          <span class="picked" data-f="picked">사이즈 선택</span>
+        </div>
+        <div class="sizegrid" data-f="sizes"></div>
+
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" data-f="minus" aria-label="수량 줄이기">−</button>
+            <output data-f="qty" aria-live="polite">1</output>
+            <button type="button" data-f="plus" aria-label="수량 늘리기">+</button>
+          </div>
+          <span class="hint" style="margin:0">사이즈 그룹에 따라 가격이 다릅니다</span>
+        </div>
+
+        <div class="addrow">
+          <button class="btn" type="button" data-f="add" disabled>장바구니에 담기</button>
+          <a class="btn ghost" href="index.html#join">오픈 알림 받기</a>
+        </div>
+
+        <p class="hint">프로토타입 · 결제는 연결되어 있지 않습니다<br>5만원 이상 무료배송 · 14일 교환</p>
+
+        <div class="acc">
+          <details open>
+            <summary>얼룩은 어떤가요</summary>
+            <div class="in">
+              <dl class="kv" style="margin-bottom:14px">
+                <dt>방어력</dt><dd data-f="wipegrade">—</dd>
+                <dt>가공</dt><dd data-f="finish">—</dd>
+              </dl>
+              <p data-f="wipenote"></p>
+              <p><a href="care.html" style="color:var(--accent)">묻었을 때 순서 보기 →</a></p>
+            </div>
+          </details>
+          <details>
+            <summary>원단과 스펙</summary>
+            <div class="in">
+              <dl class="kv">
+                <dt>혼용률</dt><dd data-f="comp">—</dd>
+                <dt>번수·조직</dt><dd data-f="yarn">—</dd>
+                <dt>중량</dt><dd data-f="gsm">—</dd>
+                <dt>인증</dt><dd>OEKO-TEX STANDARD 100 · Class I</dd>
+                <dt>수축</dt><dd>3회 세탁 후 3% 이내</dd>
+                <dt>원산지</dt><dd>대한민국</dd>
+              </dl>
+            </div>
+          </details>
+          <details>
+            <summary>봉제 규격</summary>
+            <div class="in">
+              <p>목 뒤에 택을 달지 않습니다. 사이즈와 취급 표시는 안쪽에 직접 인쇄합니다.</p>
+              <p>피부에 닿는 솔기는 플랫록으로 눕혀 박습니다. 시접이 서지 않아 얇은 옷일수록 차이가 큽니다.</p>
+              <p>스냅은 니켈을 쓰지 않고, 프린트에는 코팅을 올리지 않습니다.</p>
+            </div>
+          </details>
+          <details>
+            <summary>세탁</summary>
+            <div class="in">
+              <p>30℃ 이하 약한 손세탁 또는 세탁망 사용. 표백제와 섬유유연제는 쓰지 않습니다.</p>
+              <p>유연제는 흡수성을 떨어뜨립니다. 이 원단은 유연제 없이 빨수록 부드러워집니다.</p>
+              <p>건조기는 저온까지. 고온에서는 수축률이 기준을 넘습니다.</p>
+            </div>
+          </details>
+          <details>
+            <summary>배송과 교환</summary>
+            <div class="in">
+              <p>첫 생산은 프리오더입니다. 주문 마감 후 제작에 4~6주가 걸립니다.</p>
+              <p>택이 없는 대신 포장을 뜯어도 교환됩니다. 입고 세탁하기 전까지 14일 이내.</p>
+              <p class="fine" style="margin-top:14px">프로토타입 안내 문구입니다 — 실제 정책은 발주 전에 확정합니다.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="panel plain">
+    <div class="wrap">
+      <div class="sechd">
+        <p class="kicker">Same Fabric</p>
+        <h2>다른 사이즈, 같은 원단</h2>
+        <p>가족이 따로 사도 촉감이 같습니다.</p>
+      </div>
+      <div class="grid4">
+        <a class="pcard" href="product.html?id=sleep-set">
+          <div class="art t-oat" id="r-sleep" data-art="g-sleeptop" data-color="#F6F1E8"></div>
+          <div class="info">
+            <span class="cat">Sleep</span><h3>슬립 세트</h3>
+            <div class="prow"><span class="price">₩42,000 –</span><span class="sizes">50cm – XL</span></div>
+          </div>
+        </a>
+        <a class="pcard" href="product.html?id=base-inner">
+          <div class="art t-mist" id="r-base" data-art="g-bodysuit" data-color="#F6F1E8"></div>
+          <div class="info">
+            <span class="cat">Base</span><h3>이너 · 보디수트</h3>
+            <div class="prow"><span class="price">₩32,000 –</span><span class="sizes">50cm – XL</span></div>
+          </div>
+        </a>
+        <a class="pcard" href="product.html?id=play-smock">
+          <div class="art t-clay" id="r-play" data-art="g-smock" data-color="#E3D5BE"></div>
+          <div class="info">
+            <span class="cat">Play</span><h3>식사 스목</h3>
+            <div class="prow"><span class="price">₩39,000 –</span><span class="sizes">80cm – 10Y</span></div>
+          </div>
+        </a>
+        <a class="pcard" href="product.html?id=knit-out">
+          <div class="art t-sage" id="r-knit" data-art="g-knit" data-color="#E3D5BE"></div>
+          <div class="info">
+            <span class="cat">Out</span><h3>니트 아우터</h3>
+            <div class="prow"><span class="price">₩118,000 –</span><span class="sizes">3Y – XL</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="buybar">
+  <span class="bp" data-f="barprice">—</span>
+  <button class="btn" type="button" data-f="baradd" disabled>장바구니에 담기</button>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fcol">
+        <span class="t">Shop</span>
+        <a href="products.html">전체 라인</a>
+        <a href="product.html?id=sleep-set">슬립 세트</a>
+        <a href="product.html?id=play-smock">식사 스목</a>
+      </div>
+      <div class="fcol">
+        <span class="t">About</span>
+        <a href="fabric.html">원단</a>
+        <a href="care.html">얼룩과 세탁</a>
+        <a href="index.html#join">오픈 알림</a>
+      </div>
+      <div class="fcol">
+        <span class="t">Standard</span>
+        <span class="v">OEKO-TEX Class I</span>
+        <span class="v">불소 없는 발수 (C0)</span>
+      </div>
+      <div class="fcol">
+        <span class="t">Sizes</span>
+        <span class="v">50cm – XL · 11 사이즈</span>
+      </div>
+    </div>
+    <p class="draft"><b>프로토타입입니다.</b> 결제는 연결되어 있지 않고, 장바구니는 이 브라우저에만 저장됩니다. 옷 그림은 촬영 전 임시 일러스트입니다.</p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

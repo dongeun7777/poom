@@ -1,0 +1,7 @@
+# 임시 렌더링/디버그 파일
+_debug.html
+_mobile.html
+_join.html
+*.bak
+.DS_Store
+Thumbs.db
