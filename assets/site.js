@@ -578,13 +578,13 @@
     function paintArt() {
       main.textContent = '';
       main.appendChild(figure(p.art, colorHex(color)));
-      tryPhoto(main, 'img/' + p.id + '-1.jpg');
+      tryPhoto(main, 'assets/img/' + p.id + '-1.jpg');
 
       thumbs.textContent = '';
       p.artAlt.forEach(function (sym, i) {
         var cell = el('div', 'artpanel');
         cell.appendChild(figure(sym, colorHex(color)));
-        tryPhoto(cell, 'img/' + p.id + '-' + (i + 2) + '.jpg');
+        tryPhoto(cell, 'assets/img/' + p.id + '-' + (i + 2) + '.jpg');
         thumbs.appendChild(cell);
       });
     }
