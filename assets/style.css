@@ -158,10 +158,26 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
   min-width:20px;height:20px;border-radius:100px;
   display:grid;place-items:center;padding:0 5px;
 }
+/* 폰에서는 메뉴를 숨기지 않고 헤더 아래 한 줄로 내립니다.
+   항목이 셋뿐이라 햄버거를 열게 하는 것보다 바로 보이는 편이 낫습니다. */
 @media(max-width:860px){
-  .nav ul{display:none}
+  .nav .wrap{
+    flex-wrap:wrap;height:auto;
+    padding-top:11px;gap:0 14px;
+  }
   .nav .pill{display:none}
-  .cartbtn{margin-left:auto}
+  .cartbtn{margin-left:auto;padding:9px 15px;font-size:13.5px}
+  .mark b{font-size:22px}
+
+  .nav ul{
+    order:3;flex-basis:100%;margin:9px 0 0;gap:22px;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .nav ul::-webkit-scrollbar{display:none}
+  .nav .lnk{
+    font-size:14.5px;white-space:nowrap;padding:0 0 10px;
+  }
 }
 
 /* ================================================================ hero === */
