@@ -8,3 +8,6 @@ Thumbs.db
 
 # 내부 메모 — 공개 저장소에 올리지 않음
 NOTES.local.md
+
+# 생산 파일 — 치수·원가 포함, 공개 저장소에 올리지 않음
+production/
