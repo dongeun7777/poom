@@ -543,6 +543,28 @@ td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;fon
 tbody tr:last-child td{border-bottom:0}
 caption{caption-side:bottom;text-align:left;padding:14px 20px;font-size:12.5px;color:var(--ash)}
 
+/* 문장이 든 표는 폰에서 카드로 쌓습니다.
+   가로 스크롤로 문장을 읽게 하는 건 폰에서 가장 답답한 경험입니다.
+   숫자만 든 표(가격·중량)는 격자가 더 잘 읽히므로 그대로 둡니다. */
+@media(max-width:640px){
+  .tablewrap.stack{overflow-x:visible;background:var(--card)}
+  table.stack{min-width:0;width:100%}
+  table.stack thead{display:none}
+  table.stack tbody,table.stack tr,table.stack td{display:block}
+  table.stack tr{padding:18px;border-bottom:1px solid var(--line)}
+  table.stack tr:last-child{border-bottom:0}
+  table.stack td{border:0;padding:0;font-size:14.5px;line-height:1.7}
+  table.stack td+td{margin-top:11px;padding-top:11px;border-top:1px dashed var(--line)}
+  table.stack td::before{
+    content:attr(data-l);display:block;
+    font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ash);margin-bottom:4px;
+  }
+  table.stack td:first-child{font-size:17px;font-weight:700;letter-spacing:-.02em}
+  table.stack td:first-child::before{display:none}
+  table.stack td.num{text-align:left}
+}
+
 /* ============================================================= waitlist == */
 
 .join{
