@@ -120,6 +120,7 @@
   var SIZES = [
     { id: '50',  group: 'baby'  }, { id: '60',  group: 'baby'  },
     { id: '70',  group: 'baby'  }, { id: '80',  group: 'baby'  },
+    { id: '90',  group: 'baby'  }, { id: '100', group: 'baby'  },
     { id: '3Y',  group: 'kids'  }, { id: '6Y',  group: 'kids'  },
     { id: '10Y', group: 'kids'  },
     { id: 'S',   group: 'adult' }, { id: 'M',   group: 'adult' },
@@ -186,7 +187,7 @@
       price: { baby: 39000, kids: 49000 },
       groups: ['baby', 'kids'],
       /* 이유식을 시작하는 시점부터라 배냇 사이즈는 열지 않습니다. */
-      only: ['80', '3Y', '6Y', '10Y'],
+      only: ['80', '90', '100', '3Y', '6Y', '10Y'],
       colors: ['oat', 'clay', 'sage']
     }
   };
