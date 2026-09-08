@@ -125,7 +125,9 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
 }
 .nav .wrap{display:flex;align-items:center;gap:22px;height:var(--nav-h)}
 
-.mark{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.mark{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink)}
+.markart{width:23px;height:23px;flex:none;color:var(--ink);display:block}
+@media(max-width:860px){.markart{width:21px;height:21px}}
 .mark b{font-size:24px;font-weight:800;letter-spacing:-.05em;line-height:1}
 .mark i{
   font-family:var(--disp);font-style:normal;font-weight:600;
