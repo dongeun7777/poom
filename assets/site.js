@@ -1,5 +1,5 @@
 /* ==========================================================================
-   품 POOM — prototype v2
+   솜구름 — prototype v2
    - 옷 그림은 SVG 스프라이트(아래 SPRITE)로 그립니다. 컬러 스와치로 색이 바뀝니다.
    - assets/img/<제품id>-1.jpg 파일을 넣으면 그림 대신 그 사진을 씁니다.
    - 장바구니/대기자는 localStorage에만 저장됩니다. 서버·결제 없음.
@@ -551,7 +551,7 @@
     var color = p.colors[0];
     var qty = 1;
 
-    document.title = p.name + ' · 품 POOM';
+    document.title = p.name + ' · 솜구름';
 
     var f = function (k) { return root.querySelector('[data-f=' + k + ']'); };
 
