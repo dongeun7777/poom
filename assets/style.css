@@ -126,9 +126,9 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
 .nav .wrap{display:flex;align-items:center;gap:22px;height:var(--nav-h)}
 
 .mark{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink)}
-.markart{width:27px;height:auto;flex:none;color:var(--ink);display:block}
-@media(max-width:860px){.markart{width:24px}}
-.mark b{font-size:24px;font-weight:800;letter-spacing:-.05em;line-height:1}
+.markart{width:29px;height:auto;flex:none;color:var(--ink);display:block}
+@media(max-width:860px){.markart{width:26px}}
+.mark b{font-size:20px;font-weight:800;letter-spacing:-.04em;line-height:1;white-space:nowrap}
 .mark i{
   font-family:var(--disp);font-style:normal;font-weight:600;
   font-size:11px;letter-spacing:.26em;color:var(--ash);padding-top:2px;
@@ -169,7 +169,7 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
   }
   .nav .pill{display:none}
   .cartbtn{margin-left:auto;padding:9px 15px;font-size:13.5px}
-  .mark b{font-size:22px}
+  .mark b{font-size:18px}
 
   .nav ul{
     order:3;flex-basis:100%;margin:9px 0 0;gap:22px;
