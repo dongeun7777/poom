@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Outfit:wght@300;400;500;600;700&family=Gothic+A1:wght@300;400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="icon" href="favicon.svg?v=20260909a" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css?v=20260909a">
+<link rel="icon" href="favicon.svg?v=20260909b" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css?v=20260909b">
 </head>
 <body>
 
@@ -20,8 +20,8 @@
     <ul>
       <li><a class="lnk" href="products.html">라인</a></li>
       <li><a class="lnk" href="fabric.html">원단</a></li>
-      <li><a class="lnk" href="label.html">라벨</a></li>
       <li><a class="lnk" href="care.html">얼룩과 세탁</a></li>
+      <li><a class="lnk" href="standard.html">기준</a></li>
     </ul>
     <button class="cartbtn" type="button">장바구니 <span class="cnt">0</span></button>
   </div>
@@ -29,18 +29,19 @@
 
 <main>
 
+  <!-- ================================================= 히어로 -->
   <div class="wrap">
     <section class="hero">
-      <div>
+      <div class="herotxt">
         <p class="kicker">Newborn Standard</p>
         <h1>아기 피부가 <br class="wide">기준입니다</h1>
         <p class="lede">신생아 옷에만 적용되는 기준을 온 가족 옷에 그대로 씁니다. 배냇 50cm부터 성인 XL까지, 같은 원단으로.</p>
         <div class="cta">
-          <a class="btn lg" href="product.html?id=sleep-set">슬립 세트 보기</a>
-          <a class="btn ghost lg" href="fabric.html">원단 이야기</a>
+          <a class="btn lg" href="products.html">제품 보기</a>
+          <a class="btn ghost lg" href="#join">오픈 알림 받기</a>
         </div>
       </div>
-      <div class="heroart t-oat" data-art="g-sleeptop" data-color="#F6F1E8" data-photo="assets/img/hero.jpg">
+      <div class="heroart" data-photo="assets/img/hero.jpg">
         <span class="stamp">참고 이미지 · 실제 제품 아님 · 촬영 전</span>
       </div>
     </section>
@@ -55,49 +56,15 @@
     </div>
   </div>
 
-  <!-- ================================================= 같은 원단 -->
-  <section class="panel">
-    <div class="wrap">
-      <div class="split">
-        <div>
-          <p class="kicker">One Fabric</p>
-          <h2>같은 무늬가 아니라 <br class="wide">같은 원단입니다</h2>
-          <p class="lede">패밀리룩은 보통 1년에 한 번, 사진 찍을 때 사고 끝납니다. 솜구름은 무늬 대신 원단을 맞춥니다. 아기 것으로 고른 원단이 좋아서 어른 것도 사게 되는 쪽이 오래갑니다.</p>
-
-          <div class="sizerun">
-            <div class="sizerow">
-              <span class="sizechip">50</span><span class="sizechip">60</span>
-              <span class="sizechip">70</span><span class="sizechip">80</span>
-              <span class="sizechip">90</span><span class="sizechip">100</span>
-              <span class="sizechip">3Y</span><span class="sizechip">6Y</span>
-              <span class="sizechip">10Y</span>
-              <span class="sizechip">S</span><span class="sizechip">M</span>
-              <span class="sizechip">L</span><span class="sizechip">XL</span>
-            </div>
-            <div class="sizelegend">
-              <span>아기 50 – 100</span><span>어린이 3Y – 10Y</span><span>어른 S – XL</span>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="artpanel t-mist" data-art="g-bodysuit" data-color="#F6F1E8" data-photo="assets/img/one-fabric.jpg"></div>
-          <div class="artrow">
-            <div class="artpanel t-sand" data-art="g-sleeptop" data-color="#E3D5BE"></div>
-            <div class="artpanel t-sand" data-art="g-pants" data-color="#C9D6DF"></div>
-            <div class="artpanel t-sand" data-art="g-knit" data-color="#D9BCAD"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================= 제품 -->
+  <!-- ================================================= 제품 — 히어로 바로 다음 -->
   <section class="panel plain">
     <div class="wrap">
-      <div class="sechd">
-        <p class="kicker">Line</p>
-        <h2>네 개의 라인</h2>
-        <p>잠옷에서 시작합니다. 가족이 매일 같은 시간에 입는 유일한 옷이라서요.</p>
+      <div class="sechd row">
+        <div>
+          <p class="kicker">Line</p>
+          <h2>무엇을 파는가</h2>
+        </div>
+        <p>네 개 라인. 잠옷에서 시작합니다. 가족이 매일 같은 시간에 입는 유일한 옷이라서요.</p>
       </div>
 
       <div class="grid4">
@@ -163,117 +130,85 @@
         </a>
 
       </div>
-    </div>
-  </section>
 
-  <!-- ================================================= 얼룩 -->
-  <section class="panel deep">
-    <div class="wrap">
-      <div class="sechd">
-        <p class="kicker">Real Life</p>
-        <h2>부드러운 옷은 <br class="wide">얼룩이 뱁니다</h2>
-        <p>부드러운 원단은 흡수가 잘 됩니다. 그래서 김칫국물도 잘 뱁니다. 가공으로 없앨 수 있는 단점이 아니라 맞바꾸는 관계라, 한 원단으로 둘 다 하지 않기로 했습니다.</p>
-      </div>
-
-      <div class="tradeoff">
-        <div class="tocard">
-          <div class="h"><b>피부에 닿는 옷</b><span class="g">Sleep · Base</span></div>
-          <p>발수 가공을 하지 않습니다. 발수를 걸면 땀을 못 먹고, 그러면 아이가 밤새 축축한 채로 잡니다. 대신 앞뒤 두 겹으로 촘촘히 짜서, 얼룩이 안쪽까지 스미는 걸 늦춥니다.</p>
-        </div>
-        <div class="tocard">
-          <div class="h"><b>위에 걸치는 옷</b><span class="g">Play</span></div>
-          <p>여기에만 발수를 겁니다. 단 <b>불소를 안 쓴 발수</b>만요. 불소 계열이 값싸고 오래가지만 아기가 입에 넣는 옷에 쓸 물질이 아닙니다. 대신 세탁 30회쯤부터 발수력이 떨어지고, 그것도 적어 둡니다.</p>
-        </div>
-      </div>
-
-      <div class="split" style="margin-top:clamp(40px,5vw,64px)">
-        <div>
-          <h3 style="font-size:22px">묻었을 때, 이 순서로</h3>
-          <ol class="steps">
-            <li><b>찬물로 먼저 헹굽니다</b><span>뜨거운 물은 금물. 분유·이유식 같은 단백질 얼룩은 열을 만나면 굳어서 안 빠집니다.</span></li>
-            <li><b>문지르지 말고 눌러서 뺍니다</b><span>비비면 섬유 사이로 더 밀려 들어갑니다. 마른 수건으로 눌러 흡수시키세요.</span></li>
-            <li><b>기름 얼룩엔 주방세제 한 방울</b><span>카레·참기름은 물로 안 빠집니다. 세제로 유분을 먼저 풀어야 합니다.</span></li>
-            <li><b>표백제 대신 과탄산소다</b><span>40℃ 물에 30분. 색깔 옷은 안 보이는 곳에 먼저 시험해 보세요.</span></li>
-          </ol>
-          <p class="small" style="margin-top:24px;opacity:.75">이 순서는 옷에 딸려오는 카드에도 똑같이 넣습니다. 세탁기 옆에 붙여두시라고요.</p>
-        </div>
-        <div class="artpanel t-clay" data-art="d-stain" data-color="#E3D5BE" data-photo="assets/img/stain.jpg"></div>
+      <div class="seeall">
+        <a class="btn ghost" href="products.html">라인 전체 보기</a>
       </div>
     </div>
   </section>
 
-  <!-- ================================================= 규격 -->
-  <section class="panel plain">
-    <div class="wrap">
-      <div class="sechd">
-        <p class="kicker">Made</p>
-        <h2>디자인이 심플한 게 아니라 <br class="wide">규격을 지키면 심플해집니다</h2>
-      </div>
-
-      <div class="rule3">
-        <div class="rulecard">
-          <div class="ic">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-              <rect x="2.2" y="4.5" width="17" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/>
-              <path d="M6 9h9M6 12.5h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-              <path d="M20 18l4 4M24 18l-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>택을 달지 않습니다</h3>
-          <p>목 뒤 라벨은 전부 프린트입니다. 신생아복에만 쓰던 규칙을 성인 XL까지 그대로 적용합니다. 잘라낼 것이 없습니다.</p>
-          <span class="mn">인쇄 라벨 · No tag</span>
-        </div>
-        <div class="rulecard">
-          <div class="ic">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-              <path d="M2 9h22M2 17h22" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-              <path d="M5 13h4M12 13h4M19 13h3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>솔기를 눕힙니다</h3>
-          <p>솔기를 눕혀 박아 안쪽이 평평합니다. 살에 걸리는 게 없어서, 얇은 옷일수록 차이가 큽니다.</p>
-          <span class="mn">눕힌 솔기 · Flatlock</span>
-        </div>
-        <div class="rulecard">
-          <div class="ic">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-              <rect x="1.6" y="8" width="6.4" height="10" rx="1.4" stroke="currentColor" stroke-width="1.7"/>
-              <rect x="9.8" y="5.6" width="6.4" height="14.8" rx="1.4" stroke="currentColor" stroke-width="1.7"/>
-              <rect x="18" y="3.2" width="6.4" height="19.6" rx="1.4" stroke="currentColor" stroke-width="1.7"/>
-            </svg>
-          </div>
-          <h3>한 원단만 씁니다</h3>
-          <p>시즌마다 소재를 늘리지 않습니다. 검증된 원단을 전 사이즈로 깊게 전개하고, 새 원단은 1년에 한 종만 더합니다.</p>
-          <span class="mn">한 원단 · 전 사이즈</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================= 원단 숫자 -->
+  <!-- ================================================= 사이즈 사다리 -->
   <section class="panel">
     <div class="wrap">
-      <div class="split rev">
-        <div class="artpanel t-sand" data-art="d-seam" data-color="#E3D5BE" data-photo="assets/img/fabric.jpg"></div>
-        <div>
-          <p class="kicker">The Fabric</p>
-          <div class="bignum"><b>180</b><span class="u">gsm</span></div>
-          <p class="lede">얇으면 비치고 두꺼우면 답답합니다. 사계절 잠옷이 앉을 수 있는 자리는 생각보다 좁습니다.</p>
-          <ul class="speclist">
-            <li><span class="k">혼용률</span><span class="v">Cotton 95 / Spandex 5</span></li>
-            <li><span class="k">실</span><span class="v">코마사 30수 · 잔털을 빗어낸 실</span></li>
-            <li><span class="k">짜임</span><span class="v">인터록 · 앞뒤 두 겹</span></li>
-            <li><span class="k">원단 인증</span><span class="v">OEKO-TEX STANDARD 100 · Class I</span></li>
-            <li><span class="k">수축</span><span class="v">3회 세탁 후 3% 이내</span></li>
-          </ul>
-          <a class="btn ghost" href="fabric.html" style="margin-top:30px">원단 더 보기</a>
+      <div class="sechd center">
+        <p class="kicker">One Fabric</p>
+        <h2>같은 무늬가 아니라 같은 원단입니다</h2>
+        <p>무늬를 맞추는 패밀리룩은 1년에 한 번, 사진 찍을 때 사고 끝납니다. 솜구름은 원단을 맞춥니다.</p>
+      </div>
+
+      <div class="ladder">
+        <div class="lgrp">
+          <span class="lname">아기</span>
+          <div class="sizerow">
+            <span class="sizechip">50</span><span class="sizechip">60</span>
+            <span class="sizechip">70</span><span class="sizechip">80</span>
+            <span class="sizechip">90</span><span class="sizechip">100</span>
+          </div>
         </div>
+        <div class="lgrp">
+          <span class="lname">어린이</span>
+          <div class="sizerow">
+            <span class="sizechip">3Y</span><span class="sizechip">6Y</span><span class="sizechip">10Y</span>
+          </div>
+        </div>
+        <div class="lgrp">
+          <span class="lname">어른</span>
+          <div class="sizerow">
+            <span class="sizechip">S</span><span class="sizechip">M</span>
+            <span class="sizechip">L</span><span class="sizechip">XL</span>
+          </div>
+        </div>
+      </div>
+      <p class="ladnote">13 사이즈 · 전부 같은 원단, 같은 봉제 규격</p>
+    </div>
+  </section>
+
+  <!-- ================================================= 더 알아보기 (긴 설명은 각 페이지로) -->
+  <section class="panel plain">
+    <div class="wrap">
+      <div class="sechd row">
+        <div>
+          <p class="kicker">Why</p>
+          <h2>더 궁금하시면</h2>
+        </div>
+        <p>여기까지가 파는 것이고, 아래는 왜 이렇게 만드는지입니다. 필요할 때만 읽으셔도 됩니다.</p>
+      </div>
+
+      <div class="grid3 morecards">
+        <a class="mcard" href="fabric.html">
+          <span class="mn">The Fabric</span>
+          <h3>180gsm 인터록 하나</h3>
+          <p>얇으면 비치고 두꺼우면 답답합니다. 사계절 잠옷이 앉을 수 있는 자리는 좁습니다. 혼용률·실·짜임·수축률을 전부 적어 뒀습니다.</p>
+          <span class="go">원단 보기</span>
+        </a>
+        <a class="mcard" href="care.html">
+          <span class="mn">Real Life</span>
+          <h3>부드러운 옷은 얼룩이 뱁니다</h3>
+          <p>부드러움과 방오는 맞바꾸는 관계라 한 원단으로 둘 다 하지 않습니다. 피부에 닿는 옷과 위에 걸치는 옷을 나눈 이유, 그리고 묻었을 때 순서.</p>
+          <span class="go">얼룩과 세탁 보기</span>
+        </a>
+        <a class="mcard" href="standard.html">
+          <span class="mn">The Standard</span>
+          <h3>택 없음 · 눕힌 솔기 · 한 원단</h3>
+          <p>디자인이 심플한 게 아니라, 신생아복 봉제 규격을 성인 XL까지 지키면 심플해집니다. 지키기로 한 것과 그래서 못 하는 것.</p>
+          <span class="go">기준 보기</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ================================================= 대기자 -->
-  <section class="panel plain">
+  <section class="panel" id="join">
     <div class="wrap">
       <div class="join">
         <p class="kicker">Waitlist</p>
@@ -308,9 +243,9 @@
       <div class="fcol">
         <span class="t">About</span>
         <a href="fabric.html">원단</a>
-        <a href="label.html">라벨</a>
         <a href="care.html">얼룩과 세탁</a>
-        <a href="index.html#join">오픈 알림</a>
+        <a href="standard.html">기준</a>
+        <a href="label.html">라벨</a>
       </div>
       <div class="fcol">
         <span class="t">Standard</span>
@@ -330,6 +265,6 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=20260909a"></script>
+<script src="assets/site.js?v=20260909b"></script>
 </body>
 </html>

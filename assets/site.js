@@ -13,6 +13,20 @@
   var SPRITE = [
     '<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">',
 
+    /* 옷을 옷감처럼 보이게 하는 두 가지.
+       색면만 있으면 클립아트로 읽혀서, 위에서 아래로 그늘을 한 겹 얹고
+       바닥에 그림자를 깔아 옷이 배경 위에 놓인 것처럼 만듭니다. */
+    '<defs>',
+      '<linearGradient id="g-shade" x1="0.12" y1="0" x2="0.62" y2="1">',
+        '<stop offset="0" stop-color="#ffffff" stop-opacity=".30"/>',
+        '<stop offset=".42" stop-color="#ffffff" stop-opacity="0"/>',
+        '<stop offset="1" stop-color="#23201c" stop-opacity=".13"/>',
+      '</linearGradient>',
+      '<filter id="g-lift" x="-24%" y="-16%" width="148%" height="140%">',
+        '<feDropShadow dx="0" dy="5" stdDeviation="6.5" flood-color="#23201c" flood-opacity=".17"/>',
+      '</filter>',
+    '</defs>',
+
     /* 배냇 슬립수트 / 보디수트 */
     '<symbol id="g-bodysuit" viewBox="0 0 200 240">',
       '<path class="body" d="M76 36 Q100 52 124 36 L150 44 Q172 52 178 74 L182 96',
@@ -248,7 +262,20 @@
     s.setAttribute('viewBox', '0 0 200 240');
     s.setAttribute('aria-hidden', 'true');
     if (hex) s.style.color = hex;
-    s.innerHTML = ART[symbolId] || '';
+
+    var g = document.createElementNS(NS, 'g');
+    g.setAttribute('filter', 'url(#g-lift)');
+    g.innerHTML = ART[symbolId] || '';
+    s.appendChild(g);
+
+    // 같은 실루엣을 한 겹 더 올려 그늘만 입힙니다. 바느질선은 그 아래에 남습니다.
+    var bodies = g.querySelectorAll('.body');
+    for (var i = 0; i < bodies.length; i++) {
+      var shade = bodies[i].cloneNode(false);
+      shade.setAttribute('class', 'shade');
+      shade.setAttribute('fill', 'url(#g-shade)');
+      bodies[i].parentNode.insertBefore(shade, bodies[i].nextSibling);
+    }
     return s;
   }
 
@@ -268,13 +295,17 @@
   /* =============================================================== 그림 == */
 
   function hydrateArt() {
-    var slots = document.querySelectorAll('[data-art]');
+    // data-art 만 있으면 그림, data-photo 만 있으면 사진, 둘 다면 사진이 그림을 덮습니다
+    var slots = document.querySelectorAll('[data-art],[data-photo]');
     for (var i = 0; i < slots.length; i++) {
       var slot = slots[i];
       if (slot.getAttribute('data-done')) continue;
       slot.setAttribute('data-done', '1');
-      var hex = slot.getAttribute('data-color') || COLORS[0].hex;
-      slot.appendChild(figure(slot.getAttribute('data-art'), hex));
+      var art = slot.getAttribute('data-art');
+      if (art) {
+        var hex = slot.getAttribute('data-color') || COLORS[0].hex;
+        slot.appendChild(figure(art, hex));
+      }
       var photo = slot.getAttribute('data-photo');
       if (photo) tryPhoto(slot, photo);
     }
