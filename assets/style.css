@@ -120,11 +120,23 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
 
 .nav{
   position:sticky;top:0;z-index:40;
-  background:color-mix(in srgb,var(--cream) 88%,transparent);
+  /* 헤더 자체가 하늘입니다. 스크롤해서 내용 위에 떠도 이 색을 유지합니다. */
+  background:color-mix(in srgb, color-mix(in srgb,var(--mist) 62%,var(--cream)) 90%, transparent);
   backdrop-filter:saturate(180%) blur(14px);
   -webkit-backdrop-filter:saturate(180%) blur(14px);
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid color-mix(in srgb,var(--mist) 55%,var(--line));
+  overflow:hidden;
 }
+/* 헤더 안에 흐릿한 구름 한 겹 */
+.navsky{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  width:100%;height:100%;opacity:.55;
+}
+.nav .wrap{position:relative;z-index:1}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .navsky{opacity:.08}
+}
+:root[data-theme="dark"] .navsky{opacity:.08}
 .nav .wrap{display:flex;align-items:center;gap:22px;height:var(--nav-h)}
 
 .mark{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink)}
@@ -889,8 +901,9 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 /* ------------------------------------------------------------- 공지 바 -- */
 /* 돌리지 않습니다. 할 말이 하나뿐인데 돌리면 그게 티가 납니다. */
 .notice{
-  /* 검은 띠가 사이트에서 제일 먼저 보이면 무거워집니다. 오트색으로. */
-  background:var(--oat);color:var(--ink);
+  /* 하늘의 제일 위. 맨 위 띠 -> 내비 -> 히어로 순으로 옅어집니다. */
+  background:color-mix(in srgb, var(--mist) 88%, var(--cream));
+  color:var(--ink);
   font-size:12.5px;line-height:1;letter-spacing:-.01em;
 }
 .notice .wrap{
@@ -904,31 +917,11 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 /* --------------------------------------------------------- 히어로 배너 -- */
 /* 캐러셀이 아니라 한 장입니다. SKU 4개짜리 브랜드가 3장을 돌리면
    메시지의 3분의 2가 타이머 뒤에 숨습니다. */
-.banner{
-  /* 하늘 위에 흰 구름. 앞서 구름을 --card 로 칠했더니 바탕(--cream)과 거의 같은 색이라
-     아무것도 안 보였습니다. 바탕을 하늘색으로 깔아야 흰 구름이 읽힙니다. */
-  position:relative;overflow:hidden;
-  background:linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--mist) 96%, var(--cream)) 0%,
-    color-mix(in srgb, var(--mist) 62%, var(--cream)) 34%,
-    color-mix(in srgb, var(--mist) 24%, var(--cream)) 70%,
-    var(--cream) 100%
-  );
-}
-.sky{
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  width:100%;height:100%;color:#FFFFFF;opacity:.85;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]) .sky{color:#C9D6DF;opacity:.13}
-}
-:root[data-theme="dark"] .sky{color:#C9D6DF;opacity:.13}
-.banner>.bgrid{position:relative;z-index:1}
+.banner{background:var(--sand);overflow:hidden}
 .bgrid{display:grid;grid-template-columns:1fr 1fr;min-height:clamp(400px,44vw,500px)}
 
 .btext{
-  /* 하늘이 비쳐야 하니 바탕을 깔지 않습니다 */
+  background:var(--cream);
   display:flex;align-items:center;
   padding:clamp(34px,4.4vw,58px) clamp(24px,3.4vw,48px)
           clamp(34px,4.4vw,58px) max(var(--pad), calc((100vw - 1180px) / 2 + var(--pad)));
@@ -940,16 +933,14 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .binner .cta .btn.lg{padding:16px 26px;font-size:15px}
 
 .bmedia{
-  /* 틴트 박스를 두면 하늘이 반으로 끊깁니다. 옷을 하늘 위에 그냥 올립니다. */
   position:relative;overflow:hidden;display:grid;place-items:center;
-  background:transparent;
+  background:var(--tint,var(--oat));
 }
-.bmedia .figure{width:64%;max-width:290px}
+.bmedia .figure{width:60%;max-width:270px}
 .bmedia .stamp{
-  /* 틴트 박스를 없앴더니 왼쪽 위에 뜬금없이 떠 있었습니다. 아래 오른쪽으로. */
-  position:absolute;right:18px;bottom:16px;z-index:2;max-width:calc(100% - 36px);
+  position:absolute;left:16px;top:16px;z-index:2;max-width:calc(100% - 32px);
   font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;
-  color:var(--ink2);background:color-mix(in srgb,var(--cream) 70%,transparent);
+  color:var(--ink);background:color-mix(in srgb,var(--cream) 84%,transparent);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   padding:6px 11px;border-radius:100px;white-space:nowrap;
 }
