@@ -320,9 +320,13 @@ production/flats/reversible.png        1200x627 — 공유·발주용
 
 ```
 헤더   #C2D7E4 -> #DDE9F0   (--sky-top / --sky-bot)
-패널   #F1F6F9              (--sand)  하늘의 제일 옅은 끝
-바탕   #FFFFFF              (--cream)
+패널   #F2F6F8              (--sand)   하늘의 제일 옅은 끝
+바탕   #FDFCF9              (--cream)  순백은 병원처럼 차갑습니다. 2~3점만 크림 쪽으로
+카드   #FFFFFF              (--card)   바탕보다 밝아 저절로 떠 보입니다
 ```
+
+바탕을 크림으로 더 밀면(#FAF8F3 정도) 하늘 옆에서 누렇게 보입니다.
+세 안을 실제로 찍어 비교한 결과 `#FDFCF9` 가 한계선이었습니다.
 
 글자·선은 같은 색상 계열: `--ink:#1F2A31` `--ink2:#4E5C65` `--ash:#7E8B93`
 `--line:#E4EAEE` `--line2:#C9D5DC`.
