@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" role="img" aria-labelledby="sm-t sm-d">
+  <title id="sm-t">솔기 단면 비교</title>
+  <desc id="sm-d">옷을 옆에서 자른 단면. 보통 솔기는 천 끝자락이 피부 쪽으로 서 있어 턱이 지고, 눕힌 솔기는 천 끝을 옆으로 눕혀 그 위를 덮어 박아 피부에 닿는 면이 평평합니다.</desc>
+
+  <defs>
+    <style>
+      .cloth{fill:var(--sm-cloth,#E3D5BE);stroke:var(--sm-line,#23201C);stroke-width:2;stroke-linejoin:round}
+      .skin{fill:none;stroke:var(--sm-skin,#C7A090);stroke-width:3.4;stroke-linecap:round}
+      .stitch{fill:none;stroke:var(--sm-line,#23201C);stroke-width:1.5;stroke-linecap:round}
+      .ttl{fill:var(--sm-ink,#23201C);font-family:"Gothic A1","Malgun Gothic",sans-serif;font-size:19px;font-weight:800}
+      .lab{fill:var(--sm-ink2,#5B554D);font-family:"Gothic A1","Malgun Gothic",sans-serif;font-size:13.5px}
+      .mono{fill:var(--sm-ash,#948C81);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;letter-spacing:1.2px}
+      .bad{fill:var(--sm-bad,#A4553A);font-family:"Gothic A1","Malgun Gothic",sans-serif;font-size:14px;font-weight:700}
+      .good{fill:var(--sm-good,#2F6046);font-family:"Gothic A1","Malgun Gothic",sans-serif;font-size:14px;font-weight:700}
+      .lead{fill:none;stroke:var(--sm-ash,#948C81);stroke-width:1.1}
+      .leadbad{fill:none;stroke:var(--sm-bad,#A4553A);stroke-width:1.3}
+      .leadgood{fill:none;stroke:var(--sm-good,#2F6046);stroke-width:1.3}
+    </style>
+  </defs>
+
+  <!-- ==================================================== 위 · 보통 솔기 -->
+  <text class="ttl"  x="20" y="120">보통 솔기</text>
+  <text class="mono" x="20" y="140">PLAIN SEAM</text>
+  <text class="mono" x="20" y="168">대부분의 옷</text>
+
+  <!-- 옷 벽면. 위가 겉, 아래가 피부. 천 끝자락이 피부 쪽으로 접혀 내려옵니다. -->
+  <path class="cloth" d="M200 110 H420 V196 H402 V126 H200 Z"/>
+  <path class="cloth" d="M640 110 H420 V196 H438 V126 H640 Z"/>
+  <!-- 두 장을 꿰맨 자리 -->
+  <path class="stitch" stroke-dasharray="5 4" d="M396 162 H444"/>
+
+  <!-- 피부 — 튀어나온 천 끝에 눌립니다 -->
+  <path class="skin" d="M200 226 Q330 226 396 214 Q420 208 444 214 Q510 226 640 226"/>
+
+  <path class="lead" d="M446 150 H654"/>
+  <text class="lab"  x="660" y="146">천 끝자락이</text>
+  <text class="lab"  x="660" y="164">피부 쪽으로 서 있음</text>
+  <text class="mono" x="660" y="182">= 시접</text>
+
+  <path class="leadbad" d="M420 200 V246"/>
+  <text class="bad" x="420" y="266" text-anchor="middle">여기가 밤새 같은 자리를 문지릅니다</text>
+
+  <!-- ==================================================== 아래 · 눕힌 솔기 -->
+  <text class="ttl"  x="20" y="352">눕힌 솔기</text>
+  <text class="mono" x="20" y="372">FLAT SEAM</text>
+  <text class="mono" x="20" y="400">솜구름 · 신생아복 규격</text>
+
+  <!-- 천 끝을 맞대고, 그 위를 덮어 박습니다 -->
+  <path class="cloth" d="M200 342 H418 V358 H200 Z"/>
+  <path class="cloth" d="M640 342 H422 V358 H640 Z"/>
+  <path class="cloth" d="M388 334 H452 V342 H388 Z"/>
+  <path class="stitch" d="M396 334 V358 M412 334 V358 M428 334 V358 M444 334 V358"/>
+  <path class="stitch" d="M388 338 H452 M388 354 H452"/>
+
+  <!-- 피부 — 닿는 면이 평평합니다 -->
+  <path class="skin" d="M200 400 H640"/>
+
+  <path class="lead" d="M454 338 H654"/>
+  <text class="lab"  x="660" y="334">천 끝을 옆으로 눕혀</text>
+  <text class="lab"  x="660" y="352">그 위를 덮어 박음</text>
+  <text class="mono" x="660" y="370">FLAT / COVERSTITCH</text>
+
+  <path class="leadgood" d="M420 362 V386"/>
+  <text class="good" x="420" y="428" text-anchor="middle">닿는 면이 평평해서 걸리는 게 없습니다</text>
+
+  <!-- ==================================================== 읽는 법 -->
+  <text class="mono" x="20" y="472">옷을 옆에서 자른 단면입니다 · 위가 겉, 아래가 피부에 닿는 면</text>
+</svg>

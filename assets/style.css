@@ -1105,3 +1105,30 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 @media(max-width:940px){.rvproof{grid-template-columns:1fr;gap:26px}}
 .rvproof h3{margin-top:2px;font-size:clamp(21px,2.6vw,27px)}
 .rvproof .rvfig{margin:0}
+
+/* ------------------------------------------------------- 솔기 단면 ----- */
+/* 「눕힌 솔기」는 만져야 아는 것이라, 단면으로 보여 줍니다. */
+.seamx{
+  margin-top:clamp(36px,4.4vw,60px);
+  padding-top:clamp(36px,4.4vw,60px);border-top:1px solid var(--line2);
+}
+.seamx .sxhd{max-width:40em}
+.seamx h3{margin-top:2px;font-size:clamp(21px,2.6vw,27px)}
+.seamx .lede{max-width:38em}
+.sxtip{
+  margin-top:18px;padding:14px 18px;border-radius:var(--r-lg);
+  background:var(--card);border:1px solid var(--line);max-width:38em;
+}
+.sxfig img{
+  max-width:760px;
+  --sm-cloth:var(--oat); --sm-line:var(--ink); --sm-ink:var(--ink);
+  --sm-ink2:var(--ink2); --sm-ash:var(--ash);
+  --sm-skin:var(--clay); --sm-bad:#A4553A; --sm-good:#2F6046;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .sxfig img{--sm-bad:#D99878;--sm-good:#8FC5A6}
+}
+:root[data-theme="dark"] .sxfig img{--sm-bad:#D99878;--sm-good:#8FC5A6}
+
+/* 홈에서 단면으로 넘어가는 링크 */
+.rvpts a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
