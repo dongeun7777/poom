@@ -45,7 +45,6 @@ poom/
 
 ```
 assets/img/
-  hero.jpg               홈 히어로
   sleep-set-1.jpg ~ -4   슬립 세트 (1번이 대표, 2~4는 썸네일)
   base-inner-1.jpg ~
   play-smock-1.jpg ~

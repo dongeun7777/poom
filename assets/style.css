@@ -920,6 +920,8 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 
 /* 왼쪽 글은 .wrap 안쪽 선에 맞추고, 오른쪽 이미지는 화면 끝까지 뺍니다 */
 .stext{
+  /* 글 쪽은 항상 크림. 그림 쪽 틴트와 확실히 갈라야 배너로 읽힙니다 */
+  background:var(--cream);
   display:flex;align-items:center;
   padding:clamp(32px,4.4vw,56px) clamp(24px,3.4vw,48px)
           clamp(32px,4.4vw,56px) max(var(--pad), calc((100vw - 1180px) / 2 + var(--pad)));
@@ -935,7 +937,7 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
   background:var(--tint,var(--oat));
   display:grid;place-items:center;
 }
-.smedia .figure{width:56%;max-width:250px}
+.smedia .figure{width:62%;max-width:270px}
 .smedia .photo{object-position:center 30%}
 .smedia .stamp{
   position:absolute;left:16px;top:16px;z-index:2;max-width:calc(100% - 32px);
