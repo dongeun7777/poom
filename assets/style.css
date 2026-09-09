@@ -19,6 +19,9 @@
   --cream:#FDFCF9;
   --sand:#F2F6F8;
   --card:#FFFFFF;
+  /* 옷이 놓이는 면. 구조색(하늘 계열)이 아니라 원단 쪽 색입니다.
+     크림 옷이 살짝 더 짙은 크림 위에 놓여 '원단 위 원단' 으로 읽힙니다. */
+  --linen:#F5F1EA;
   --ink:#1F2A31;
   --ink2:#4E5C65;
   --ash:#7E8B93;
@@ -60,7 +63,7 @@
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --sky-top:#232F38; --sky-bot:#1E272E; --cloud:#2C3A43;
-    --cream:#141A1E; --sand:#1B2429; --card:#212B31;
+    --cream:#141A1E; --sand:#1B2429; --card:#212B31; --linen:#2A2620;
     --ink:#E6EDF1; --ink2:#A9B6BD; --ash:#7D8B93;
     --line:#27333A; --line2:#37464F;
     --accent:#A8BDD6; --accent-2:#BACBDF; --accent-soft:#252C36; --on-accent:#171B21;
@@ -73,7 +76,7 @@
 }
 :root[data-theme="dark"]{
   --sky-top:#232F38; --sky-bot:#1E272E; --cloud:#2C3A43;
-  --cream:#141A1E; --sand:#1B2429; --card:#212B31;
+  --cream:#141A1E; --sand:#1B2429; --card:#212B31; --linen:#2A2620;
   --ink:#E6EDF1; --ink2:#A9B6BD; --ash:#7D8B93;
   --line:#27333A; --line2:#37464F;
   --accent:#A8BDD6; --accent-2:#BACBDF; --accent-soft:#252C36; --on-accent:#171B21;
@@ -947,7 +950,8 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 
 .bmedia{
   position:relative;overflow:hidden;display:grid;place-items:center;
-  background:var(--tint,var(--oat));
+  /* 헤더가 하늘인데 여기까지 파랗게 두면 파랑이 아무 데나 반복됩니다 */
+  background:var(--linen);
 }
 .bmedia .figure{width:60%;max-width:270px}
 .bmedia .stamp{
@@ -1025,7 +1029,7 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .fart{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,18px)}
 .fbig{
   position:relative;aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;
-  background:var(--tint,var(--oat));display:grid;place-items:center;
+  background:var(--linen);display:grid;place-items:center;
   box-shadow:var(--shadow-s);
 }
 .fbig .figure{width:78%;max-width:230px}
