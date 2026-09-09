@@ -1068,3 +1068,40 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
   background:var(--sand);border:1px dashed var(--line2);
 }
 .panel.plain .joinwarn{background:var(--card)}
+
+/* ---------------------------------------------- 뒤집어 입어도 되는 옷 ---- */
+/* 우리 차별점은 사진에 안 찍힙니다. 이 그림이 그걸 대신합니다. */
+.rvfig{margin:clamp(24px,3vw,36px) 0 0;padding:0}
+.rvfig img{
+  width:100%;max-width:820px;margin:0 auto;display:block;
+  --rv-cloth:var(--card); --rv-line:var(--ink);
+  --rv-accent:var(--accent); --rv-ink:var(--ink); --rv-ash:var(--ash);
+}
+
+.rvpts{
+  list-style:none;margin:clamp(26px,3.2vw,38px) 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,28px);
+}
+@media(max-width:760px){.rvpts{grid-template-columns:1fr;gap:0}}
+.rvpts li{
+  padding-top:18px;border-top:1px solid var(--line2);
+  display:flex;flex-direction:column;gap:5px;
+}
+@media(max-width:760px){.rvpts li{padding:16px 0}}
+.rvpts b{font-size:16px;font-weight:700;letter-spacing:-.02em}
+.rvpts span{font-size:14px;line-height:1.75;color:var(--ink2);text-wrap:pretty}
+
+.rvnote{
+  margin:clamp(24px,3vw,34px) auto 0;max-width:34em;text-align:center;
+  font-size:13.5px;line-height:1.75;color:var(--ink2);
+}
+
+/* About 페이지 — 세 규격 바로 아래 붙는 결과 */
+.rvproof{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,52px);
+  align-items:center;margin-top:clamp(36px,4.4vw,60px);
+  padding-top:clamp(36px,4.4vw,60px);border-top:1px solid var(--line2);
+}
+@media(max-width:940px){.rvproof{grid-template-columns:1fr;gap:26px}}
+.rvproof h3{margin-top:2px;font-size:clamp(21px,2.6vw,27px)}
+.rvproof .rvfig{margin:0}

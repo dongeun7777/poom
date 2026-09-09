@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 392" role="img" aria-labelledby="rv-t rv-d">
+  <title id="rv-t">겉과 안이 같은 옷</title>
+  <desc id="rv-d">같은 슬립수트를 겉면과 뒤집은 안쪽으로 나란히 놓은 도식화. 목 뒤에 택이 없고 시접이 눕혀져 있어 두 면이 구분되지 않습니다.</desc>
+
+  <defs>
+    <!-- 옷감 색과 선 색을 바깥에서 바꿀 수 있게 변수로 둡니다 -->
+    <style>
+      .cloth{fill:var(--rv-cloth,#F6F1E8);stroke:var(--rv-line,#23201C);stroke-width:2.4;stroke-linejoin:round}
+      .seam{fill:none;stroke:var(--rv-line,#23201C);stroke-width:1.2;stroke-dasharray:4 3;opacity:.5}
+      .flat{fill:none;stroke:var(--rv-line,#23201C);stroke-width:1.4;opacity:.5}
+      .snap{fill:var(--rv-line,#23201C)}
+      .lead{fill:none;stroke:var(--rv-accent,#2E4057);stroke-width:1.3}
+      .ring{fill:none;stroke:var(--rv-accent,#2E4057);stroke-width:1.3}
+      .cap{fill:var(--rv-ink,#23201C);font-family:"Gothic A1","Malgun Gothic",sans-serif;font-size:15px;font-weight:700}
+      .mono{fill:var(--rv-ash,#948C81);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:1.4px}
+      .note{fill:var(--rv-accent,#2E4057);font-family:"Gothic A1","Malgun Gothic",sans-serif;font-size:12.5px;font-weight:700}
+      .eq{fill:var(--rv-ash,#948C81);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:34px}
+    </style>
+
+    <!-- 슬립수트 한 벌. 좌우에서 같은 형태를 씁니다. -->
+    <g id="rv-suit">
+      <path class="cloth" d="M78 34 Q105 51 132 34 L154 42 Q176 51 182 76 L196 148
+        Q198 157 189 159 L168 164 Q160 166 158 157 L148 118 L154 205 L152 260
+        Q151 268 143 268 L122 268 Q115 268 114 261 L105 215 L96 261
+        Q95 268 88 268 L67 268 Q59 268 58 260 L56 205 L62 118 L52 157
+        Q50 166 42 164 L21 159 Q12 157 14 148 L28 76 Q34 51 56 42 Z"/>
+      <path class="seam" d="M105 51 L105 215"/>
+      <path class="seam" d="M105 215 L122 262 M105 215 L88 262"/>
+      <path class="seam" d="M80 38 Q105 54 130 38"/>
+      <path class="flat" d="M162 160 L190 155 M48 160 L20 155 M62 252 L100 252 M110 252 L148 252"/>
+      <g class="snap">
+        <circle cx="105" cy="70" r="2.8"/><circle cx="105" cy="98" r="2.8"/>
+        <circle cx="105" cy="126" r="2.8"/><circle cx="105" cy="154" r="2.8"/>
+        <circle cx="105" cy="182" r="2.8"/><circle cx="105" cy="208" r="2.8"/>
+        <circle cx="113" cy="234" r="2.5"/><circle cx="118" cy="256" r="2.5"/>
+        <circle cx="97" cy="234" r="2.5"/><circle cx="92" cy="256" r="2.5"/>
+      </g>
+    </g>
+  </defs>
+
+  <!-- ================================================= 왼쪽 · 겉면 -->
+  <g transform="translate(60,52)">
+    <use href="#rv-suit"/>
+    <text class="mono" x="105" y="-18" text-anchor="middle">OUTSIDE</text>
+    <text class="cap"  x="105" y="304" text-anchor="middle">겉면</text>
+  </g>
+
+  <!-- 같다 -->
+  <text class="eq" x="450" y="196" text-anchor="middle">=</text>
+  <text class="mono" x="450" y="226" text-anchor="middle">구분되지 않음</text>
+
+  <!-- ================================================= 오른쪽 · 안쪽 -->
+  <!-- 뒤집은 면이라 좌우를 반전시켜 그립니다 -->
+  <g transform="translate(840,52) scale(-1,1)">
+    <use href="#rv-suit"/>
+  </g>
+  <g transform="translate(630,52)">
+    <text class="mono" x="105" y="-18" text-anchor="middle">INSIDE</text>
+    <text class="cap"  x="105" y="304" text-anchor="middle">안쪽 · 뒤집은 면</text>
+
+    <!-- 안쪽에서 확인되는 두 가지 -->
+    <!-- 목 뒤: 택이 있어야 할 자리 -->
+    <circle class="ring" cx="105" cy="44" r="17"/>
+    <path class="lead" d="M122 40 L172 22"/>
+    <text class="note" x="176" y="20">택 없음</text>
+    <text class="mono" x="176" y="36">NO TAG</text>
+
+    <!-- 어깨·소매 시접 -->
+    <circle class="ring" cx="170" cy="160" r="15"/>
+    <path class="lead" d="M184 166 L214 190"/>
+    <text class="note" x="196" y="212">눕힌 솔기</text>
+    <text class="mono" x="196" y="228">FLAT SEAM</text>
+  </g>
+
+</svg>
