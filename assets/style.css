@@ -292,10 +292,11 @@ h3{font-size:clamp(18px,2.1vw,21px);line-height:1.5}
 
 /* =============================================================== panels == */
 
-.panel{padding:clamp(52px,6.6vw,92px) 0;background:var(--sand)}
+/* 섹션마다 배경색 띠를 번갈아 깔면 페이지가 색으로 구분됩니다.
+   흰 바탕 하나에 카드 반복으로 구분하는 쪽이 훨씬 정돈돼 보입니다. */
+.panel{padding:clamp(44px,5.4vw,76px) 0;background:transparent}
 .panel.plain{background:transparent}
-/* 페이지 한가운데 네이비 큰 덩어리가 오면 밤이 옵니다. 연한 하늘로. */
-.panel.deep{background:var(--mist);color:var(--ink)}
+.panel.deep{background:transparent;color:var(--ink)}
 .panel.deep h2,.panel.deep h3{color:var(--ink)}
 .panel.deep .lede,.panel.deep .small{color:var(--ink2)}
 .panel.deep .kicker{color:var(--accent)}
@@ -1193,3 +1194,105 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .markpts li:last-child{border-bottom:0}
 .markpts b{font-size:15.5px;font-weight:700;letter-spacing:-.02em}
 .markpts span{font-size:14px;line-height:1.75;color:var(--ink2);text-wrap:pretty}
+
+
+/* ==========================================================================
+   카드 그리드 — 흰 바탕 위 같은 모양 카드의 반복으로 페이지를 짭니다.
+   섹션마다 배경색이 바뀌거나 레이아웃이 제각각이면 정돈돼 보이지 않습니다.
+   ========================================================================== */
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:clamp(24px,3vw,34px);
+}
+.card.pad0{padding:0;overflow:hidden}
+
+/* 카드 안 머리 */
+.card > .ch{margin-bottom:16px}
+.card .ch h3{margin:0}
+.card .ch p{margin:8px 0 0;font-size:14px;line-height:1.8;color:var(--ink2);text-wrap:pretty}
+
+/* 섹션 머리 — 카드 위에 놓입니다 */
+.gh{margin-bottom:clamp(18px,2.2vw,26px)}
+.gh h2{margin:0}
+.gh p{margin:10px 0 0;font-size:15.5px;line-height:1.8;color:var(--ink2);max-width:38em;text-wrap:pretty}
+
+/* 반복 그리드 */
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.6vw,18px)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,18px)}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,18px)}
+@media(max-width:900px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .g2,.g3{grid-template-columns:1fr}
+  /* 사실 카드 넷은 한 줄씩 쌓으면 화면을 너무 먹습니다 */
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .fact{padding:18px 10px}
+  .fact b{font-size:13.5px}
+  .fact span{font-size:12px}
+}
+
+/* 링크가 되는 카드 */
+a.card{
+  text-decoration:none;color:inherit;display:flex;flex-direction:column;
+  transition:border-color .16s ease,box-shadow .16s ease,transform .16s ease;
+}
+a.card:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:translateY(-2px)}
+@media (prefers-reduced-motion:reduce){a.card:hover{transform:none}}
+a.card .go{margin-top:auto;padding-top:14px;font-size:14px;font-weight:700;color:var(--accent)}
+a.card .go::after{content:" 92"}
+
+/* 신뢰 카드 — 숫자·사실 한 줄짜리 */
+.fact{text-align:center;padding:22px 16px}
+.fact b{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em}
+.fact span{display:block;margin-top:5px;font-size:13px;color:var(--ash)}
+
+/* -------------------------------------------------- 카드 안 배치 ------- */
+/* 딱딱한 기업 그리드가 되지 않게: 모서리를 넉넉히 굴리고,
+   카드 크기에 변화를 주고, 옷이 놓이는 안쪽은 원단색으로 둡니다. */
+.card{border-radius:20px}
+.panel.tight{padding-top:clamp(26px,3vw,40px);padding-bottom:0}
+
+.fact{padding:24px 16px}
+
+/* 첫 생산 — 큰 카드 하나. 왼쪽 옷, 오른쪽 정보 */
+.feat{display:grid;grid-template-columns:1.02fr .98fr;align-items:stretch}
+@media(max-width:940px){.feat{grid-template-columns:1fr}}
+.feat .fart{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--line);margin:0;
+}
+.feat .fbig{border-radius:0;box-shadow:none;aspect-ratio:auto;min-height:340px}
+.feat .finfo{padding:clamp(26px,3.2vw,40px);border-left:1px solid var(--line)}
+@media(max-width:940px){
+  .feat .finfo{border-left:0;border-top:1px solid var(--line)}
+  .feat .fbig{min-height:250px}
+}
+
+/* 뒤집어 입어도 되는 옷 카드 */
+.rvcard .rvfig{margin:0 auto}
+.rvcard .rvpts{margin-top:clamp(24px,3vw,34px)}
+.rvcard .rvnote{margin-bottom:0}
+
+/* 사이즈 카드 */
+.ladcard .ladder{margin-top:0}
+.ladcard .ladnote{margin-bottom:0}
+
+/* 다음에 만들 것 */
+.card.soon{padding:clamp(22px,2.6vw,28px);border-top:1px solid var(--line);gap:6px;display:flex;flex-direction:column}
+.card.soon h3{margin-top:2px}
+.card.soon p{margin:0;font-size:14px;line-height:1.8;color:var(--ink2);text-wrap:pretty}
+.card .cat{
+  font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:0;color:var(--accent);
+}
+
+/* 링크 카드 안쪽 */
+a.card h3{margin:0 0 8px}
+a.card p{margin:0;font-size:14px;line-height:1.8;color:var(--ink2);text-wrap:pretty}
+
+/* 대기자 카드 */
+.joincard{padding:clamp(34px,4.4vw,56px)}
+.joincard .join{margin:0}
