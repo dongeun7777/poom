@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Outfit:wght@300;400;500;600;700&family=Gothic+A1:wght@300;400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="icon" href="favicon.svg?v=20260909n" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css?v=20260909n">
+<link rel="icon" href="favicon.svg?v=20260909p" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css?v=20260909p">
 </head>
 <body>
 
@@ -19,13 +19,22 @@
 
 <header class="nav">
   <svg class="navsky" viewBox="0 0 1200 66" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <defs><filter id="navsoft" x="-40%" y="-120%" width="180%" height="340%"><feGaussianBlur stdDeviation="17"/></filter></defs>
-    <g filter="url(#navsoft)" fill="#FFFFFF">
-      <ellipse cx="150" cy="40" rx="150" ry="26"/>
-      <ellipse cx="300" cy="26" rx="105" ry="20"/>
-      <ellipse cx="700" cy="46" rx="170" ry="24"/>
-      <ellipse cx="980" cy="28" rx="130" ry="22"/>
-      <ellipse cx="1140" cy="48" rx="110" ry="20"/>
+    <defs>
+      <filter id="cusoft" x="-25%" y="-25%" width="150%" height="150%">
+        <feGaussianBlur stdDeviation="3.2"/>
+      </filter>
+      <g id="cu">
+        <circle cx="34" cy="36" r="21"/>
+        <circle cx="60" cy="25" r="25"/>
+        <circle cx="86" cy="35" r="19"/>
+        <circle cx="106" cy="44" r="13"/>
+        <rect x="20" y="42" width="94" height="22" rx="11"/>
+      </g>
+    </defs>
+    <g filter="url(#cusoft)" fill="var(--cloud)">
+      <use href="#cu" x="30"  y="30" width="230" height="115"/>
+      <use href="#cu" x="520" y="38" width="200" height="100"/>
+      <use href="#cu" x="960" y="26" width="250" height="125"/>
     </g>
   </svg>
   <div class="wrap">
@@ -229,6 +238,6 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=20260909n"></script>
+<script src="assets/site.js?v=20260909p"></script>
 </body>
 </html>

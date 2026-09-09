@@ -28,6 +28,10 @@
   --garment-line:rgba(35,32,28,.30);
   /* 눕힌 솔기에 쓰는 실. 전 컬러 공통 한 가지 — 실 교체를 한 번으로 묶습니다. */
   --thread:#C8B48F;
+  /* 헤더 하늘. 뭉게구름이 뜨려면 바탕이 확실한 하늘색이어야 합니다. */
+  --sky-top:#C2D7E4;
+  --sky-bot:#E2ECF2;
+  --cloud:#FAFCFD;
   --shadow-s:0 2px 10px rgba(35,32,28,.05);
   --shadow-m:0 10px 34px rgba(35,32,28,.10);
   --shadow-l:0 22px 60px rgba(35,32,28,.16);
@@ -44,6 +48,7 @@
 
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
+    --sky-top:#232F38; --sky-bot:#1E272E; --cloud:#2C3A43;
     --cream:#1A1816; --sand:#221F1C; --card:#282420;
     --ink:#F0EAE0; --ink2:#BDB4A8; --ash:#8C8478;
     --line:#332E28; --line2:#453E35;
@@ -56,6 +61,7 @@
   }
 }
 :root[data-theme="dark"]{
+  --sky-top:#232F38; --sky-bot:#1E272E; --cloud:#2C3A43;
   --cream:#1A1816; --sand:#221F1C; --card:#282420;
   --ink:#F0EAE0; --ink2:#BDB4A8; --ash:#8C8478;
   --line:#332E28; --line2:#453E35;
@@ -121,22 +127,17 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
 .nav{
   position:sticky;top:0;z-index:40;
   /* 헤더 자체가 하늘입니다. 스크롤해서 내용 위에 떠도 이 색을 유지합니다. */
-  background:color-mix(in srgb, color-mix(in srgb,var(--mist) 62%,var(--cream)) 90%, transparent);
-  backdrop-filter:saturate(180%) blur(14px);
-  -webkit-backdrop-filter:saturate(180%) blur(14px);
-  border-bottom:1px solid color-mix(in srgb,var(--mist) 55%,var(--line));
+  background:linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bot) 100%);
+  border-bottom:1px solid color-mix(in srgb,var(--sky-top) 62%,var(--line));
   overflow:hidden;
 }
 /* 헤더 안에 흐릿한 구름 한 겹 */
 .navsky{
   position:absolute;inset:0;z-index:0;pointer-events:none;
-  width:100%;height:100%;opacity:.55;
+  width:100%;height:100%;
 }
 .nav .wrap{position:relative;z-index:1}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]) .navsky{opacity:.08}
-}
-:root[data-theme="dark"] .navsky{opacity:.08}
+
 .nav .wrap{display:flex;align-items:center;gap:22px;height:var(--nav-h)}
 
 .mark{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink)}
@@ -165,6 +166,7 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
 
 .nav ul{display:flex;gap:28px;list-style:none;margin:0 auto;padding:0}
 .nav .lnk{
+  color:var(--ink);
   font-size:14.5px;font-weight:500;color:var(--ink2);text-decoration:none;
   padding:6px 0;border-bottom:2px solid transparent;
 }
@@ -901,9 +903,8 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 /* ------------------------------------------------------------- 공지 바 -- */
 /* 돌리지 않습니다. 할 말이 하나뿐인데 돌리면 그게 티가 납니다. */
 .notice{
-  /* 하늘의 제일 위. 맨 위 띠 -> 내비 -> 히어로 순으로 옅어집니다. */
-  background:color-mix(in srgb, var(--mist) 88%, var(--cream));
-  color:var(--ink);
+  /* 하늘의 제일 위 */
+  background:var(--sky-top);color:var(--ink);
   font-size:12.5px;line-height:1;letter-spacing:-.01em;
 }
 .notice .wrap{
