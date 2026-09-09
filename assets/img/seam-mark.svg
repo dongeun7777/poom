@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 330" role="img" aria-labelledby="mk-t">
+  <title id="mk-t">솔기 실 색 비교</title>
+  <defs>
+    <style>
+      .cloth{fill:var(--mk-cloth,#F6F1E8);stroke:var(--mk-line,#23201C);stroke-width:1.8;stroke-linejoin:round}
+      .fold{fill:none;stroke:var(--mk-line,#23201C);stroke-width:.9;stroke-dasharray:3 2.5;opacity:.35}
+      .snap{fill:var(--mk-line,#23201C);opacity:.7}
+      .seam{fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:1.8 2.6}
+      .lb{fill:var(--mk-ink2,#5B554D);font-family:"Gothic A1","Malgun Gothic",sans-serif;font-size:13px;font-weight:700}
+      .mn{fill:var(--mk-ash,#948C81);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:9.5px;letter-spacing:1.1px}
+    </style>
+    <g id="mk-suit">
+      <path class="cloth" d="M78 34 Q105 51 132 34 L154 42 Q176 51 182 76 L196 148
+        Q198 157 189 159 L168 164 Q160 166 158 157 L148 118 L154 205 L152 260
+        Q151 268 143 268 L122 268 Q115 268 114 261 L105 215 L96 261
+        Q95 268 88 268 L67 268 Q59 268 58 260 L56 205 L62 118 L52 157
+        Q50 166 42 164 L21 159 Q12 157 14 148 L28 76 Q34 51 56 42 Z"/>
+      <path class="fold" d="M105 51 L105 215"/>
+      <g class="snap">
+        <circle cx="105" cy="72" r="2.5"/><circle cx="105" cy="106" r="2.5"/>
+        <circle cx="105" cy="140" r="2.5"/><circle cx="105" cy="174" r="2.5"/>
+        <circle cx="105" cy="208" r="2.5"/>
+      </g>
+      <path class="seam" d="M56 46 Q48 82 62 118 L58 205"/>
+      <path class="seam" d="M154 46 Q162 82 148 118 L152 205"/>
+      <path class="seam" d="M20 155 L47 160 M190 155 L163 160"/>
+      <path class="seam" d="M62 252 L100 252 M110 252 L148 252"/>
+      <path class="seam" d="M79 37 Q105 53 131 37"/>
+    </g>
+  </defs>
+
+  <g transform="translate(6,10) scale(.9)" color="#DCCFB8"><use href="#mk-suit"/></g>
+  <text class="lb" x="101" y="312" text-anchor="middle">지금</text>
+  <text class="mn" x="101" y="328" text-anchor="middle">원단과 같은 색</text>
+
+  <g transform="translate(236,10) scale(.9)" color="#C8B48F"><use href="#mk-suit"/></g>
+  <text class="lb" x="331" y="312" text-anchor="middle">오트색 실</text>
+  <text class="mn" x="331" y="328" text-anchor="middle">#C8B48F</text>
+</svg>

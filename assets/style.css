@@ -26,6 +26,8 @@
   --clay:#DCC5B8;
 
   --garment-line:rgba(35,32,28,.30);
+  /* 눕힌 솔기에 쓰는 실. 전 컬러 공통 한 가지 — 실 교체를 한 번으로 묶습니다. */
+  --thread:#C8B48F;
   --shadow-s:0 2px 10px rgba(35,32,28,.05);
   --shadow-m:0 10px 34px rgba(35,32,28,.10);
   --shadow-l:0 22px 60px rgba(35,32,28,.16);
@@ -750,6 +752,12 @@ footer{margin-top:clamp(60px,8vw,110px);border-top:1px solid var(--line);padding
 }
 .figure .dot{fill:var(--garment-line)}
 
+/* 겉에서 보이는 눕힌 솔기. 로고 대신 이게 표식입니다. */
+.figure .seam{
+  fill:none;stroke:var(--thread);stroke-width:2.2;
+  stroke-linecap:round;stroke-dasharray:1.7 2.5;
+}
+
 
 /* ==========================================================================
    2026-09-09 — 메인 재구성
@@ -1132,3 +1140,23 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 
 /* 홈에서 단면으로 넘어가는 링크 */
 .rvpts a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+
+/* ------------------------------------------------------------- 표식 ----- */
+.markfig img{
+  max-width:460px;
+  --mk-cloth:var(--card); --mk-line:var(--ink);
+  --mk-ink2:var(--ink2); --mk-ash:var(--ash);
+}
+.markfig figcaption{
+  margin-top:12px;text-align:center;
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ash);
+}
+.markpts{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--line2)}
+.markpts li{
+  padding:16px 0;border-bottom:1px solid var(--line);
+  display:flex;flex-direction:column;gap:4px;
+}
+.markpts li:last-child{border-bottom:0}
+.markpts b{font-size:15.5px;font-weight:700;letter-spacing:-.02em}
+.markpts span{font-size:14px;line-height:1.75;color:var(--ink2);text-wrap:pretty}

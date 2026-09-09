@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 392" role="img" aria-labelledby="rv-t rv-d">
   <title id="rv-t">겉과 안이 같은 옷</title>
-  <desc id="rv-d">같은 슬립수트를 겉면과 뒤집은 안쪽으로 나란히 놓은 도식화. 목 뒤에 택이 없고 시접이 눕혀져 있어 두 면이 구분되지 않습니다.</desc>
+  <desc id="rv-d">같은 슬립수트를 겉면과 뒤집은 안쪽으로 나란히 놓은 도식화. 목 뒤에 택이 없고 꿰맨 자리의 천 끝이 눕혀져 있어 어느 쪽을 겉으로 입어도 됩니다.</desc>
 
   <defs>
     <!-- 옷감 색과 선 색을 바깥에서 바꿀 수 있게 변수로 둡니다 -->
@@ -9,6 +9,7 @@
       .seam{fill:none;stroke:var(--rv-line,#23201C);stroke-width:1.2;stroke-dasharray:4 3;opacity:.5}
       .flat{fill:none;stroke:var(--rv-line,#23201C);stroke-width:1.4;opacity:.5}
       .snap{fill:var(--rv-line,#23201C)}
+      .thread{fill:none;stroke:var(--rv-thread,#C8B48F);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1.7 2.5}
       .lead{fill:none;stroke:var(--rv-accent,#2E4057);stroke-width:1.3}
       .ring{fill:none;stroke:var(--rv-accent,#2E4057);stroke-width:1.3}
       .cap{fill:var(--rv-ink,#23201C);font-family:"Gothic A1","Malgun Gothic",sans-serif;font-size:15px;font-weight:700}
@@ -27,7 +28,9 @@
       <path class="seam" d="M105 51 L105 215"/>
       <path class="seam" d="M105 215 L122 262 M105 215 L88 262"/>
       <path class="seam" d="M80 38 Q105 54 130 38"/>
-      <path class="flat" d="M162 160 L190 155 M48 160 L20 155 M62 252 L100 252 M110 252 L148 252"/>
+      <path class="thread" d="M56 46 Q48 82 62 118 L58 205"/>
+      <path class="thread" d="M154 46 Q162 82 148 118 L152 205"/>
+      <path class="thread" d="M162 160 L190 155 M48 160 L20 155 M62 252 L100 252 M110 252 L148 252"/>
       <g class="snap">
         <circle cx="105" cy="70" r="2.8"/><circle cx="105" cy="98" r="2.8"/>
         <circle cx="105" cy="126" r="2.8"/><circle cx="105" cy="154" r="2.8"/>
@@ -47,7 +50,7 @@
 
   <!-- 같다 -->
   <text class="eq" x="450" y="196" text-anchor="middle">=</text>
-  <text class="mono" x="450" y="226" text-anchor="middle">구분되지 않음</text>
+  <text class="mono" x="450" y="226" text-anchor="middle">양쪽 다 평평함</text>
 
   <!-- ================================================= 오른쪽 · 안쪽 -->
   <!-- 뒤집은 면이라 좌우를 반전시켜 그립니다 -->

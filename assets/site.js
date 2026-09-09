@@ -27,6 +27,31 @@
       '</filter>',
     '</defs>',
 
+
+    /* 아기 슬립수트 — 긴팔 · 긴바지 원피스형.
+       production/flats/baby-sleepsuit-front.svg 와 같은 형태입니다.
+       원본이 210x300 이라 200x240 스프라이트에 맞춰 0.8 로 줄여 넣습니다. */
+    '<symbol id="g-sleepsuit" viewBox="0 0 200 240">',
+      '<g transform="translate(16,0) scale(.8)">',
+        '<path class="body" d="M78 34 Q105 51 132 34 L154 42 Q176 51 182 76 L196 148',
+        ' Q198 157 189 159 L168 164 Q160 166 158 157 L148 118 L154 205 L152 260',
+        ' Q151 268 143 268 L122 268 Q115 268 114 261 L105 215 L96 261',
+        ' Q95 268 88 268 L67 268 Q59 268 58 260 L56 205 L62 118 L52 157',
+        ' Q50 166 42 164 L21 159 Q12 157 14 148 L28 76 Q34 51 56 42 Z"/>',
+        '<path class="stitch" d="M105 51 L105 215"/>',
+        '<path class="stitch" d="M105 215 L122 262 M105 215 L88 262"/>',
+        '<path class="seam" d="M56 46 Q48 82 62 118 L58 205"/>',
+        '<path class="seam" d="M154 46 Q162 82 148 118 L152 205"/>',
+        '<path class="seam" d="M20 155 L47 160 M190 155 L163 160"/>',
+        '<path class="seam" d="M62 252 L100 252 M110 252 L148 252"/>',
+        '<path class="seam" d="M79 37 Q105 53 131 37"/>',
+        '<circle class="dot" cx="105" cy="70" r="2.8"/><circle class="dot" cx="105" cy="98" r="2.8"/>',
+        '<circle class="dot" cx="105" cy="126" r="2.8"/><circle class="dot" cx="105" cy="154" r="2.8"/>',
+        '<circle class="dot" cx="105" cy="182" r="2.8"/><circle class="dot" cx="105" cy="208" r="2.8"/>',
+        '<circle class="dot" cx="113" cy="234" r="2.5"/><circle class="dot" cx="118" cy="256" r="2.5"/>',
+        '<circle class="dot" cx="97" cy="234" r="2.5"/><circle class="dot" cx="92" cy="256" r="2.5"/>',
+      '</g>',
+    '</symbol>',
     /* 배냇 슬립수트 / 보디수트 */
     '<symbol id="g-bodysuit" viewBox="0 0 200 240">',
       '<path class="body" d="M76 36 Q100 52 124 36 L150 44 Q172 52 178 74 L182 96',
@@ -39,7 +64,10 @@
       '<circle class="dot" cx="88" cy="184" r="3"/>',
       '<circle class="dot" cx="100" cy="187" r="3"/>',
       '<circle class="dot" cx="112" cy="184" r="3"/>',
-    '</symbol>',
+          '<path class="seam" d="M60 48 Q52 76 57 92 L57 156"/>',
+      '<path class="seam" d="M140 48 Q148 76 143 92 L143 156"/>',
+      '<path class="seam" d="M22 104 L50 108 M178 104 L150 108"/>',
+'</symbol>',
 
     /* 슬립 세트 상의 (긴팔) */
     '<symbol id="g-sleeptop" viewBox="0 0 200 240">',
@@ -50,7 +78,11 @@
       '<path class="stitch" d="M77 43 Q100 58 123 43"/>',
       '<path class="stitch" d="M58 194 L142 194"/>',
       '<path class="stitch" d="M100 52 L100 96"/>',
-    '</symbol>',
+          '<path class="seam" d="M56 46 Q48 82 54 112 L54 200"/>',
+      '<path class="seam" d="M144 46 Q152 82 146 112 L146 200"/>',
+      '<path class="seam" d="M16 148 L42 152 M184 148 L158 152"/>',
+      '<path class="seam" d="M58 198 L142 198"/>',
+'</symbol>',
 
     /* 슬립 세트 하의 */
     '<symbol id="g-pants" viewBox="0 0 200 240">',
@@ -60,7 +92,9 @@
       ' Q55 204 54 196 L52 46 Q52 40 58 40 Z"/>',
       '<path class="stitch" d="M55 56 L145 56"/>',
       '<path class="stitch" d="M100 62 L100 104"/>',
-    '</symbol>',
+          '<path class="seam" d="M53 48 L54 198"/>',
+      '<path class="seam" d="M147 48 L146 198"/>',
+'</symbol>',
 
     /* 니트 아우터 (카디건) */
     '<symbol id="g-knit" viewBox="0 0 200 240">',
@@ -73,7 +107,10 @@
       '<circle class="dot" cx="100" cy="84" r="3.4"/>',
       '<circle class="dot" cx="100" cy="118" r="3.4"/>',
       '<circle class="dot" cx="100" cy="152" r="3.4"/>',
-    '</symbol>',
+          '<path class="seam" d="M56 46 Q48 80 53 108 L53 192"/>',
+      '<path class="seam" d="M144 46 Q152 80 147 108 L147 192"/>',
+      '<path class="seam" d="M14 138 L40 142 M186 138 L160 142"/>',
+'</symbol>',
 
     /* 식사 스목 (긴팔, 손목 고무) */
     '<symbol id="g-smock" viewBox="0 0 200 240">',
@@ -86,7 +123,10 @@
       '<path class="body" d="M78 150 Q78 146 82 146 L118 146 Q122 146 122 150 L122 182',
       ' Q122 186 118 186 L82 186 Q78 186 78 182 Z" opacity=".55"/>',
       '<path class="stitch" d="M78 156 L122 156"/>',
-    '</symbol>',
+          '<path class="seam" d="M55 50 Q46 84 52 112 L52 202"/>',
+      '<path class="seam" d="M145 50 Q154 84 148 112 L148 202"/>',
+      '<path class="seam" d="M18 134 L42 138 M182 134 L158 138"/>',
+'</symbol>',
 
     /* 디테일: 얼룩과 세척 */
     '<symbol id="d-stain" viewBox="0 0 200 240">',
@@ -151,11 +191,11 @@
 
   var CATALOG = {
     'sleep-set': {
-      id: 'sleep-set', cat: 'Sleep', name: '슬립 세트',
-      art: 'g-sleeptop', artAlt: ['g-pants', 'd-seam', 'd-label'],
+      id: 'sleep-set', cat: 'Sleep', name: '슬립웨어',
+      art: 'g-sleepsuit', artAlt: ['g-sleeptop', 'd-seam', 'd-label'],
       tag: '첫 생산',
       lead: '온 가족이 같은 원단으로 잡니다.',
-      desc: '사계절 상하 세트예요. 무늬 없이 색만 맞추니까 따로 입어도 어색하지 않고, 같이 입으면 이어집니다. 배냇 슬립수트부터 성인 세트까지 전부 같은 원단이라 촉감이 똑같아요.',
+      desc: '몸에 따라 형태가 달라집니다. 아기는 원피스형 슬립수트 — 뒤척여도 배가 드러나지 않습니다. 어른은 슬립 상의입니다. 형태는 달라도 원단과 봉제 규격은 하나라 촉감이 똑같아요.',
       fabric: 'Cotton 95 / Spandex 5', gsm: 180, yarn: '코마사 30수 · 앞뒤 두 겹',
       finish: '가공 없음',
       wipe: { grade: '보통', note: '살에 닿는 옷이라 물 튕기는 가공을 하지 않습니다. 대신 앞뒤 두 겹으로 촘촘히 짜서 얼룩이 안쪽까지 덜 스밉니다.' },
