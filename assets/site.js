@@ -713,113 +713,12 @@
   }
 
 
-  /* ============================================================== 공지 바 == */
-
-  /** 상단 공지 세 줄을 돌립니다. 움직임을 끈 사용자에게는 첫 줄만 남깁니다. */
-  function initNotice() {
-    var box = document.getElementById('notice');
-    if (!box) return;
-    var msgs = box.querySelectorAll('.nmsg');
-    if (msgs.length < 2) return;
-    if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-
-    var i = 0;
-    setInterval(function () {
-      msgs[i].classList.remove('on');
-      i = (i + 1) % msgs.length;
-      msgs[i].classList.add('on');
-    }, 4200);
-  }
-
-  /* ============================================================== 캐러셀 == */
-
-  function initShowcase() {
-    var root = document.querySelector('.showcase');
-    if (!root) return;
-    var slides = [].slice.call(root.querySelectorAll('.slide'));
-    var dotbox = root.querySelector('.sdots');
-    var prev = root.querySelector('.snav.prev');
-    var next = root.querySelector('.snav.next');
-    if (slides.length < 2) {
-      if (dotbox) dotbox.hidden = true;
-      if (prev) prev.hidden = true;
-      if (next) next.hidden = true;
-      return;
-    }
-
-    var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-    var at = 0, timer = null, dots = [];
-
-    for (var i = 0; i < slides.length; i++) {
-      (function (n) {
-        var d = document.createElement('button');
-        d.type = 'button';
-        d.className = 'sdot';
-        d.setAttribute('role', 'tab');
-        d.setAttribute('aria-label', (n + 1) + '번 슬라이드');
-        d.addEventListener('click', function () { go(n); hold(); });
-        dotbox.appendChild(d);
-        dots.push(d);
-      })(i);
-    }
-
-    function go(n) {
-      at = (n + slides.length) % slides.length;
-      for (var i = 0; i < slides.length; i++) {
-        var on = i === at;
-        slides[i].classList.toggle('on', on);
-        // hidden 을 같이 써야 화면 낭독기와 탭 이동이 꺼진 슬라이드를 건너뜁니다
-        slides[i].hidden = !on;
-        dots[i].setAttribute('aria-selected', on ? 'true' : 'false');
-      }
-    }
-
-    function play() {
-      if (reduce || timer) return;
-      timer = setInterval(function () { go(at + 1); }, 6500);
-    }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
-    /** 사용자가 직접 넘기면 잠깐 멈췄다가 다시 돕니다. */
-    function hold() { stop(); setTimeout(play, 9000); }
-
-    if (prev) prev.addEventListener('click', function () { go(at - 1); hold(); });
-    if (next) next.addEventListener('click', function () { go(at + 1); hold(); });
-
-    root.addEventListener('mouseenter', stop);
-    root.addEventListener('mouseleave', play);
-    root.addEventListener('focusin', stop);
-    root.addEventListener('focusout', function (e) {
-      if (!root.contains(e.relatedTarget)) play();
-    });
-    root.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') { go(at - 1); hold(); }
-      if (e.key === 'ArrowRight') { go(at + 1); hold(); }
-    });
-
-    // 손가락으로 넘기기
-    var x0 = null;
-    root.addEventListener('touchstart', function (e) {
-      x0 = e.touches[0].clientX; stop();
-    }, { passive: true });
-    root.addEventListener('touchend', function (e) {
-      if (x0 === null) return;
-      var dx = e.changedTouches[0].clientX - x0;
-      if (Math.abs(dx) > 45) go(dx < 0 ? at + 1 : at - 1);
-      x0 = null; hold();
-    });
-
-    go(0);
-    play();
-  }
-
   /* ================================================================ 시작 == */
 
 
   function start() {
     buildDrawer();
     initNav();
-    initNotice();
-    initShowcase();
     hydrateArt();
     hydrateCardSwatches();
     paintCart();

@@ -882,159 +882,70 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
    ========================================================================== */
 
 /* ------------------------------------------------------------- 공지 바 -- */
+/* 돌리지 않습니다. 할 말이 하나뿐인데 돌리면 그게 티가 납니다. */
 .notice{
   background:var(--ink);color:var(--cream);
   font-size:12.5px;line-height:1;letter-spacing:-.01em;
 }
 .notice .wrap{
-  position:relative;height:38px;display:flex;align-items:center;justify-content:center;
-}
-.nmsg{
-  position:absolute;left:var(--pad);right:var(--pad);text-align:center;
-  opacity:0;transform:translateY(6px);pointer-events:none;
-  transition:opacity .45s ease,transform .45s ease;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.nmsg.on{opacity:.92;transform:none}
-@media (prefers-reduced-motion:reduce){
-  .nmsg{transition:none;transform:none}
+  height:38px;display:flex;align-items:center;justify-content:center;
+  opacity:.92;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 @media(max-width:560px){
-  .notice .wrap{height:34px}
-  .nmsg{font-size:11.5px}
+  .notice .wrap{height:34px;font-size:11px}
 }
 
-/* ----------------------------------------------------------- 캐러셀 ---- */
-.showcase{position:relative;background:var(--sand);overflow:hidden}
-.slides{position:relative;min-height:clamp(430px,48vw,540px)}
+/* --------------------------------------------------------- 히어로 배너 -- */
+/* 캐러셀이 아니라 한 장입니다. SKU 4개짜리 브랜드가 3장을 돌리면
+   메시지의 3분의 2가 타이머 뒤에 숨습니다. */
+.banner{background:var(--sand);overflow:hidden}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;min-height:clamp(400px,44vw,500px)}
 
-.slide{
-  position:absolute;inset:0;
-  opacity:0;visibility:hidden;
-  transition:opacity .55s ease;
-}
-.slide.on{opacity:1;visibility:visible}
-@media (prefers-reduced-motion:reduce){.slide{transition:none}}
-
-.sgrid{display:grid;grid-template-columns:1fr 1fr;height:100%}
-
-/* 왼쪽 글은 .wrap 안쪽 선에 맞추고, 오른쪽 이미지는 화면 끝까지 뺍니다 */
-.stext{
-  /* 글 쪽은 항상 크림. 그림 쪽 틴트와 확실히 갈라야 배너로 읽힙니다 */
+.btext{
   background:var(--cream);
   display:flex;align-items:center;
-  padding:clamp(32px,4.4vw,56px) clamp(24px,3.4vw,48px)
-          clamp(32px,4.4vw,56px) max(var(--pad), calc((100vw - 1180px) / 2 + var(--pad)));
+  padding:clamp(34px,4.4vw,58px) clamp(24px,3.4vw,48px)
+          clamp(34px,4.4vw,58px) max(var(--pad), calc((100vw - 1180px) / 2 + var(--pad)));
 }
-.sinner{max-width:21.5em}
-.sinner h1{font-size:clamp(32px,4.6vw,54px)}
-.sinner .lede{margin-top:18px;font-size:clamp(15px,1.55vw,17px);max-width:24em}
-.sinner .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(24px,3vw,34px)}
-.sinner .cta .btn.lg{padding:16px 26px;font-size:15px}
+.binner{max-width:21.5em}
+.binner h1{font-size:clamp(32px,4.6vw,54px)}
+.binner .lede{margin-top:18px;font-size:clamp(15px,1.55vw,17px);max-width:24em}
+.binner .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(24px,3vw,34px)}
+.binner .cta .btn.lg{padding:16px 26px;font-size:15px}
 
-.smedia{
+.bmedia{
   position:relative;overflow:hidden;
-  background:var(--tint,var(--oat));
-  display:grid;place-items:center;
+  background:var(--tint,var(--oat));display:grid;place-items:center;
 }
-.smedia .figure{width:62%;max-width:270px}
-.smedia .photo{object-position:center 30%}
-.smedia .stamp{
+.bmedia .figure{width:60%;max-width:270px}
+.bmedia .stamp{
   position:absolute;left:16px;top:16px;z-index:2;max-width:calc(100% - 32px);
   font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;
   color:var(--ink);background:color-mix(in srgb,var(--cream) 84%,transparent);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  padding:6px 11px;border-radius:100px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-
-@media(max-width:880px){
-  .slides{min-height:0}
-  .slide{position:absolute}
-  .slide.on{position:relative}
-  .sgrid{grid-template-columns:1fr}
-  .smedia{aspect-ratio:5/4;order:-1}
-  .stext{padding:clamp(26px,6vw,40px) var(--pad) clamp(34px,7vw,46px)}
-  .sinner{max-width:none}
-  .smedia .figure{width:44%}
-}
-
-/* 좌우 화살표 — 넓은 화면에서만. 좁으면 손가락으로 넘기는 게 빠릅니다 */
-.snav{
-  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
-  width:42px;height:42px;border-radius:100px;cursor:pointer;
-  display:grid;place-items:center;color:var(--ink);
-  background:color-mix(in srgb,var(--cream) 82%,transparent);
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  border:1px solid var(--line);
-  transition:background .15s ease,border-color .15s ease;
-}
-.snav:hover{background:var(--cream);border-color:var(--line2)}
-.snav.prev{left:16px}
-.snav.next{right:16px}
-@media(max-width:880px){.snav{display:none}}
-
-.sdots{
-  position:absolute;left:0;right:0;bottom:clamp(14px,2vw,22px);z-index:3;
-  display:flex;gap:8px;justify-content:center;
+  padding:6px 11px;border-radius:100px;white-space:nowrap;
 }
 @media(max-width:880px){
-  .sdots{bottom:auto;top:calc(clamp(0px,0px,0px) + 14px)}
-  .sdots{top:14px;bottom:auto}
-}
-.sdot{
-  width:26px;height:4px;border-radius:100px;padding:0;cursor:pointer;
-  border:0;background:color-mix(in srgb,var(--ink) 22%,transparent);
-  transition:background .2s ease,width .2s ease;
-}
-.sdot[aria-selected="true"]{background:var(--ink);width:38px}
-@media(max-width:880px){
-  .sdot{background:color-mix(in srgb,var(--cream) 55%,transparent)}
-  .sdot[aria-selected="true"]{background:var(--cream)}
+  .bgrid{grid-template-columns:1fr;min-height:0}
+  .bmedia{aspect-ratio:5/4;order:-1}
+  .bmedia .figure{width:44%}
+  .btext{padding:clamp(26px,6vw,40px) var(--pad) clamp(34px,7vw,46px)}
+  .binner{max-width:none}
 }
 
 /* ------------------------------------------------------------ 진열 줄 -- */
 .panel.shelf{padding:clamp(44px,5vw,68px) 0}
 
-/* 카드 상태 — 코니가 '일시품절 / 재입고' 쓰는 자리. 우리는 사실대로 씁니다 */
-.pcard .stat{
-  margin-top:10px;font-size:12px;letter-spacing:-.01em;color:var(--ash);
-  display:flex;align-items:center;gap:6px;
-}
-.pcard .stat::before{
-  content:"";width:5px;height:5px;border-radius:100px;background:var(--line2);
-}
-.pcard .stat.go{color:var(--accent);font-weight:700}
-.pcard .stat.go::before{background:var(--accent)}
-
-/* 컬러로 고르기 */
-.ctiles{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.8vw,18px);
-  margin-top:clamp(22px,2.8vw,32px);
-}
-@media(max-width:700px){.ctiles{grid-template-columns:repeat(2,1fr)}}
-.ctile{
-  display:flex;flex-direction:column;gap:3px;text-decoration:none;color:inherit;
-  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:18px 18px 20px;
-  transition:border-color .16s ease,transform .16s ease,box-shadow .16s ease;
-}
-a.ctile:hover{border-color:var(--line2);box-shadow:var(--shadow-s);transform:translateY(-2px)}
-@media (prefers-reduced-motion:reduce){a.ctile:hover{transform:none}}
-.ctile .chip{
-  display:block;height:74px;border-radius:calc(var(--r-lg) - 8px);margin-bottom:12px;
-  background:var(--c);border:1px solid var(--line);
-}
-.ctile b{font-size:15px;font-weight:700;letter-spacing:-.02em}
-.ctile .en{
-  font-family:var(--mono);font-size:10px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ash);
-}
-
-/* 사이즈 칩이 이제 링크입니다 */
-a.sizechip{text-decoration:none;transition:border-color .14s ease,background .14s ease}
-a.sizechip:hover{border-color:var(--accent);color:var(--accent)}
 .lgrp .lname{white-space:nowrap}
+
+/* 첫 생산에 실제로 나오는 사이즈만 채웁니다. 나머지는 전개 계획일 뿐입니다. */
+.sizechip.on{
+  background:var(--ink);border-color:var(--ink);color:var(--cream);font-weight:500;
+}
+.dotmark{
+  display:inline-block;width:9px;height:9px;border-radius:3px;
+  background:var(--ink);vertical-align:baseline;margin-right:2px;
+}
 
 /* ---------------------------------------------------------- 브랜드 띠 -- */
 .bband{
@@ -1063,3 +974,88 @@ a.sizechip:hover{border-color:var(--accent);color:var(--accent)}
 
 /* 캐러셀이 sticky nav 바로 아래 붙으므로 nav 는 공지 바 아래에서 멈춥니다 */
 .notice+.nav{top:0}
+
+
+/* ==========================================================================
+   2026-09-09 (3) — 상점 흉내를 걷어냄
+   SKU 4개짜리 브랜드에 SKU 40개짜리 문법을 씌워서 엉성해졌습니다.
+   캐러셀·공지 회전·가짜 필터·없는 배송정책을 빼고, 만들 것 하나를 크게 놓습니다.
+   ========================================================================== */
+
+/* ----------------------------------------------------- 첫 생산 한 품목 -- */
+.feature{
+  display:grid;grid-template-columns:1.05fr .95fr;
+  gap:clamp(26px,4vw,56px);align-items:center;
+  margin-top:clamp(26px,3.2vw,40px);
+}
+@media(max-width:940px){.feature{grid-template-columns:1fr;gap:30px}}
+
+.fart{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,18px)}
+.fbig{
+  position:relative;aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;
+  background:var(--tint,var(--oat));display:grid;place-items:center;
+  box-shadow:var(--shadow-s);
+}
+.fbig .figure{width:78%;max-width:230px}
+.ftag{
+  position:absolute;left:12px;bottom:12px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;
+  background:color-mix(in srgb,var(--cream) 86%,transparent);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  color:var(--ink);padding:5px 10px;border-radius:100px;white-space:nowrap;
+}
+
+.finfo .cat{
+  font-family:var(--disp);font-weight:600;font-size:11.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);
+}
+.finfo h3{margin:8px 0 0;font-size:clamp(24px,3vw,32px)}
+.finfo .lede{margin-top:14px;max-width:26em}
+
+.flist{list-style:none;margin:26px 0 0;padding:22px 0 0;border-top:1px solid var(--line2)}
+.flist li{display:flex;gap:16px;padding:9px 0;font-size:14.5px;align-items:baseline}
+.flist .k{flex:0 0 8em;color:var(--ash);font-size:13px}
+.flist .v{color:var(--ink);flex:1}
+.flist .swat{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13.5px}
+.flist .swat i{
+  width:15px;height:15px;border-radius:100px;background:var(--c);
+  border:1px solid var(--line2);flex:none;
+}
+.flist .swat i+i{margin-left:8px}
+
+/* 견적 전 숫자라는 걸 값 옆에 붙여 둡니다. 나중에 30% 움직이면 신뢰 문제가 됩니다. */
+.fprice{
+  margin-top:26px;padding:20px 22px;border-radius:var(--r-lg);
+  background:var(--card);border:1px solid var(--line);
+}
+.fprice .pk{
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ash);display:block;
+}
+.fprice b{
+  display:block;margin-top:6px;font-size:22px;font-weight:700;
+  letter-spacing:-.03em;font-variant-numeric:tabular-nums;
+}
+.fprice .pnote{margin:10px 0 0;font-size:13px;line-height:1.7;color:var(--ink2)}
+
+.finfo .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+
+/* --------------------------------------------------- 다음에 만들 것 ---- */
+/* 카드가 아니라 목록입니다. 아직 살 수 없는 것에 카드를 주면 파는 척이 됩니다. */
+.soonrow{margin-top:clamp(22px,2.8vw,32px)}
+.soon{
+  padding:22px 0 0;border-top:1px solid var(--line2);
+  display:flex;flex-direction:column;gap:7px;
+}
+.soon .mn{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ash);
+}
+.soon h3{font-size:18px}
+.soon p{margin:0;font-size:14px;line-height:1.75;color:var(--ink2);text-wrap:pretty}
+
+/* 가격 옆 '예상가' — 공장 견적 전 숫자라는 걸 값에서 떼지 않습니다 */
+.price em{
+  font-style:normal;font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ash);margin-left:6px;vertical-align:2px;
+}
