@@ -1059,3 +1059,12 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
   font-style:normal;font-family:var(--mono);font-size:9px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ash);margin-left:6px;vertical-align:2px;
 }
+
+/* 대기 신청이 아직 서버에 안 붙었다는 경고. 붙이는 날 이 규칙과 문구를 같이 지웁니다. */
+.joinwarn{
+  margin:16px auto 0;max-width:30em;font-size:13px;line-height:1.7;
+  color:var(--ink2);
+  padding:10px 16px;border-radius:100px;
+  background:var(--sand);border:1px dashed var(--line2);
+}
+.panel.plain .joinwarn{background:var(--card)}

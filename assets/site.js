@@ -549,7 +549,7 @@
       if (list.some(function (r) { return r.email === v; })) {
         msg.hidden = false;
         msg.className = 'msg';
-        msg.textContent = '이미 신청하셨어요. 오픈하면 가장 먼저 알려드릴게요.';
+        msg.textContent = '이미 적어 두셨어요. 아직 서버가 없어서 이 브라우저에만 남아 있습니다.';
         input.value = '';
         return;
       }
@@ -560,7 +560,7 @@
       msg.hidden = false;
       msg.className = 'msg';
       msg.textContent = ok
-        ? '신청됐어요. 프로토타입이라 이 브라우저에만 저장됩니다 — 실제 명단은 D52에 엽니다.'
+        ? '적어 뒀습니다. 다만 아직 서버가 없어서 이 브라우저에만 저장되고, 메일은 가지 않습니다.'
         : '브라우저가 저장을 막고 있어 기록하지 못했어요.';
       input.value = '';
       paintCount();
