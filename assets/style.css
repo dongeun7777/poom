@@ -96,9 +96,9 @@ a{color:inherit}
 
 /* ============================================================ typography = */
 
-h1,h2,h3{margin:0;letter-spacing:-.035em;text-wrap:balance;font-weight:700}
-h1{font-size:clamp(36px,6.2vw,68px);line-height:1.12}
-h2{font-size:clamp(27px,4.1vw,44px);line-height:1.2}
+h1,h2,h3{margin:0;letter-spacing:-.028em;text-wrap:balance;font-weight:700}
+h1{font-size:clamp(34px,5.6vw,60px);line-height:1.2}
+h2{font-size:clamp(26px,3.7vw,40px);line-height:1.28}
 h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
 
 .kicker{
@@ -127,7 +127,14 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
 }
 .nav .wrap{display:flex;align-items:center;gap:22px;height:var(--nav-h)}
 
-.mark{display:flex;align-items:center;gap:0;text-decoration:none;color:var(--ink)}
+.mark{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink)}
+/* 구름 윤곽을 옷 솔기와 같은 실로 박습니다. 로고와 표식이 같은 물건입니다. */
+.mark .cloud{
+  width:26px;height:17px;flex:none;
+  fill:none;stroke:var(--thread);stroke-width:3.2;
+  stroke-linecap:round;stroke-dasharray:2.6 3.8;
+}
+@media(max-width:860px){ .mark .cloud{width:23px;height:15px} }
 .mark b{
   font-family:"Gowun Batang",serif;
   font-size:23px;font-weight:700;line-height:1;white-space:nowrap;
@@ -153,15 +160,18 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
 .nav .lnk[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
 
 .cartbtn{
+  /* 검정 알약이 헤더 오른쪽에서 제일 무거웠습니다. 테두리만 남깁니다. */
   display:inline-flex;align-items:center;gap:8px;
   font-family:var(--sans);font-size:14px;font-weight:600;
-  background:var(--ink);color:var(--cream);border:0;
-  padding:10px 17px;cursor:pointer;border-radius:100px;
+  background:transparent;color:var(--ink);border:1.5px solid var(--line2);
+  padding:9px 16px;cursor:pointer;border-radius:100px;
+  transition:border-color .15s ease,color .15s ease;
 }
+.cartbtn:hover{border-color:var(--accent);color:var(--accent)}
 .cartbtn:hover{background:var(--accent)}
 .cartbtn .cnt{
   font-variant-numeric:tabular-nums;font-size:12px;
-  background:var(--cream);color:var(--ink);
+  background:var(--sand);color:var(--ink2);
   min-width:20px;height:20px;border-radius:100px;
   display:grid;place-items:center;padding:0 5px;
 }
@@ -216,17 +226,18 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
   font-family:var(--sans);font-size:15px;font-weight:600;line-height:1;
-  background:var(--ink);color:var(--cream);border:1.5px solid var(--ink);
+  /* 새까만 알약 대신 데님. 같은 무게인데 훨씬 부드럽습니다. */
+  background:var(--accent);color:var(--on-accent);border:1.5px solid var(--accent);
   padding:16px 28px;border-radius:100px;cursor:pointer;text-decoration:none;
   transition:background .15s ease,border-color .15s ease,color .15s ease;
 }
-.btn:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{background:var(--accent-2);border-color:var(--accent-2);color:var(--on-accent)}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line2)}
 .btn.ghost:hover{background:transparent;border-color:var(--accent);color:var(--accent)}
 .btn.block{width:100%}
 .btn.lg{padding:18px 34px;font-size:16px}
 .btn:disabled{opacity:.4;cursor:not-allowed}
-.btn:disabled:hover{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.btn:disabled:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 
 /* ================================================================ trust == */
 
@@ -250,14 +261,15 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
 
 .panel{padding:clamp(52px,6.6vw,92px) 0;background:var(--sand)}
 .panel.plain{background:transparent}
-.panel.deep{background:var(--accent);color:var(--on-accent)}
-.panel.deep h2,.panel.deep h3{color:var(--on-accent)}
-.panel.deep .lede,.panel.deep .small{color:color-mix(in srgb,var(--on-accent) 76%,transparent)}
-.panel.deep .kicker{color:color-mix(in srgb,var(--on-accent) 70%,transparent)}
+/* 페이지 한가운데 네이비 큰 덩어리가 오면 밤이 옵니다. 연한 하늘로. */
+.panel.deep{background:var(--mist);color:var(--ink)}
+.panel.deep h2,.panel.deep h3{color:var(--ink)}
+.panel.deep .lede,.panel.deep .small{color:var(--ink2)}
+.panel.deep .kicker{color:var(--accent)}
 
 .sechd{margin-bottom:clamp(30px,4vw,48px);max-width:40em}
 .sechd h2+p{margin:16px 0 0;color:var(--ink2);font-size:16.5px;line-height:1.8;max-width:30em;text-wrap:pretty}
-.panel.deep .sechd h2+p{color:color-mix(in srgb,var(--on-accent) 78%,transparent)}
+.panel.deep .sechd h2+p{color:var(--ink2)}
 
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
 @media(max-width:880px){.split{grid-template-columns:1fr;gap:32px}}
@@ -273,16 +285,12 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
   background:var(--card);border:1px solid var(--line2);color:var(--ink);
   padding:10px 15px;border-radius:100px;
 }
-.panel.deep .sizechip{
-  background:color-mix(in srgb,var(--on-accent) 12%,transparent);
-  border-color:color-mix(in srgb,var(--on-accent) 26%,transparent);
-  color:var(--on-accent);
-}
+.panel.deep .sizechip{background:var(--card);border-color:var(--line2);color:var(--ink)}
 .sizelegend{
   display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);
 }
-.panel.deep .sizelegend{color:color-mix(in srgb,var(--on-accent) 62%,transparent)}
+.panel.deep .sizelegend{color:var(--ink2)}
 
 /* ============================================================== gallery == */
 
@@ -322,37 +330,32 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
 @media(max-width:760px){.tradeoff{grid-template-columns:1fr}}
 .tocard{
   border-radius:var(--r-lg);padding:clamp(22px,3vw,30px);
-  background:color-mix(in srgb,var(--on-accent) 10%,transparent);
+  background:var(--card);box-shadow:var(--shadow-s);
 }
-.panel:not(.deep) .tocard{background:var(--card);box-shadow:var(--shadow-s)}
 .tocard .h{
   display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px;
 }
 .tocard .h b{font-size:17px;font-weight:700;letter-spacing:-.02em}
 .tocard .h .g{
   font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-  padding:3px 9px;border-radius:100px;
-  background:color-mix(in srgb,var(--on-accent) 16%,transparent);
+  padding:3px 9px;border-radius:100px;background:var(--sand);color:var(--ink2);
 }
-.panel:not(.deep) .tocard .h .g{background:var(--sand);color:var(--ink2)}
 .tocard p{margin:0;font-size:14.5px;line-height:1.8;opacity:.85}
 
 /* 응급처치 순서 — 진짜 순서라서 번호를 씁니다 */
 .steps{margin:34px 0 0;padding:0;counter-reset:s;list-style:none;display:grid;gap:0}
 .steps li{
   counter-increment:s;position:relative;padding:16px 0 16px 46px;
-  border-bottom:1px solid color-mix(in srgb,var(--on-accent) 18%,transparent);
+  border-bottom:1px solid var(--line2);
   font-size:15px;line-height:1.75;
 }
-.panel:not(.deep) .steps li{border-bottom-color:var(--line)}
 .steps li:last-child{border-bottom:0}
 .steps li::before{
   content:counter(s);position:absolute;left:0;top:16px;
   width:26px;height:26px;border-radius:100px;display:grid;place-items:center;
   font-family:var(--mono);font-size:11px;
-  background:color-mix(in srgb,var(--on-accent) 16%,transparent);
+  background:var(--card);color:var(--accent);
 }
-.panel:not(.deep) .steps li::before{background:var(--sand);color:var(--accent)}
 .steps li b{font-weight:700}
 .steps li span{display:block;opacity:.78;font-size:13.5px;margin-top:2px}
 
@@ -858,14 +861,8 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .qlist .v{color:var(--ink);font-weight:500}
 
 .deeplink{margin:clamp(30px,4vw,44px) 0 0}
-.panel.deep .deeplink .btn.ghost{
-  color:var(--on-accent);
-  border-color:color-mix(in srgb,var(--on-accent) 34%,transparent);
-}
-.panel.deep .deeplink .btn.ghost:hover{
-  border-color:var(--on-accent);color:var(--on-accent);
-  background:color-mix(in srgb,var(--on-accent) 10%,transparent);
-}
+.panel.deep .deeplink .btn.ghost{color:var(--ink);border-color:var(--line2)}
+.panel.deep .deeplink .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
 
 /* 못 하는 것 — 브랜드가 스스로 거는 제약이라 목록으로 담담하게 */
 .cantlist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
@@ -892,12 +889,13 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 /* ------------------------------------------------------------- 공지 바 -- */
 /* 돌리지 않습니다. 할 말이 하나뿐인데 돌리면 그게 티가 납니다. */
 .notice{
-  background:var(--ink);color:var(--cream);
+  /* 검은 띠가 사이트에서 제일 먼저 보이면 무거워집니다. 오트색으로. */
+  background:var(--oat);color:var(--ink);
   font-size:12.5px;line-height:1;letter-spacing:-.01em;
 }
 .notice .wrap{
   height:38px;display:flex;align-items:center;justify-content:center;
-  opacity:.92;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  opacity:.82;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 @media(max-width:560px){
   .notice .wrap{height:34px;font-size:11px}
@@ -906,11 +904,30 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 /* --------------------------------------------------------- 히어로 배너 -- */
 /* 캐러셀이 아니라 한 장입니다. SKU 4개짜리 브랜드가 3장을 돌리면
    메시지의 3분의 2가 타이머 뒤에 숨습니다. */
-.banner{background:var(--sand);overflow:hidden}
+.banner{
+  /* 평평한 베이지 덩어리가 무거워 보이던 자리.
+     흐릿하게 번진 구름을 깔아 대기처럼 만듭니다. 형태가 또렷하면 클립아트가 됩니다. */
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(58% 52% at 14% 14%, color-mix(in srgb,var(--mist) 62%, transparent), transparent 68%),
+    radial-gradient(52% 46% at 78% 82%, color-mix(in srgb,var(--oat) 66%, transparent), transparent 70%),
+    radial-gradient(38% 34% at 92% 10%, color-mix(in srgb,var(--sage) 46%, transparent), transparent 68%),
+    radial-gradient(46% 40% at 46% 96%, color-mix(in srgb,var(--powder) 40%, transparent), transparent 70%),
+    var(--cream);
+}
+.sky{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  width:100%;height:100%;opacity:.40;color:var(--card);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .sky{opacity:.16}
+}
+:root[data-theme="dark"] .sky{opacity:.16}
+.banner>.bgrid{position:relative;z-index:1}
 .bgrid{display:grid;grid-template-columns:1fr 1fr;min-height:clamp(400px,44vw,500px)}
 
 .btext{
-  background:var(--cream);
+  /* 하늘이 비쳐야 하니 바탕을 깔지 않습니다 */
   display:flex;align-items:center;
   padding:clamp(34px,4.4vw,58px) clamp(24px,3.4vw,48px)
           clamp(34px,4.4vw,58px) max(var(--pad), calc((100vw - 1180px) / 2 + var(--pad)));
@@ -922,8 +939,9 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .binner .cta .btn.lg{padding:16px 26px;font-size:15px}
 
 .bmedia{
-  position:relative;overflow:hidden;
-  background:var(--tint,var(--oat));display:grid;place-items:center;
+  position:relative;overflow:hidden;display:grid;place-items:center;
+  /* 반투명 틴트라 뒤의 하늘이 이어집니다 */
+  background:color-mix(in srgb,var(--tint,var(--oat)) 62%, transparent);
 }
 .bmedia .figure{width:60%;max-width:270px}
 .bmedia .stamp{
