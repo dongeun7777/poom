@@ -30,7 +30,7 @@
 
   --accent:#2E4057;
   --accent-2:#3E5573;
-  --accent-soft:#DCE8F1;
+  --accent-soft:#DEE9F7;
   --on-accent:#FBF8F3;
 
   --oat:#E8DCC8;
@@ -43,8 +43,10 @@
   /* 눕힌 솔기에 쓰는 실. 전 컬러 공통 한 가지 — 실 교체를 한 번으로 묶습니다. */
   --thread:#C8B48F;
   /* 헤더 하늘. 뭉게구름이 뜨려면 바탕이 확실한 하늘색이어야 합니다. */
-  --sky-top:#C2D7E4;
-  --sky-bot:#DDE9F0;
+  /* 하늘 색상. 앞서 쓰던 #C2D7E4 는 색상이 200도라 청록 쪽으로 기울어
+     나란히 놓고 보면 칙칙했습니다. 211도로 옮겨 진짜 하늘 쪽으로. */
+  --sky-top:#BDD7EF;
+  --sky-bot:#DCE8F6;
   --cloud:#FAFCFD;
   --shadow-s:0 2px 10px rgba(31,42,49,.06);
   --shadow-m:0 10px 34px rgba(31,42,49,.10);
