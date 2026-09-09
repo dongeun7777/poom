@@ -116,15 +116,22 @@ a{color:inherit}
 
 /* ============================================================ typography = */
 
-h1,h2,h3{margin:0;letter-spacing:-.028em;text-wrap:balance;font-weight:700}
-h1{font-size:clamp(34px,5.6vw,60px);line-height:1.2}
-h2{font-size:clamp(26px,3.7vw,40px);line-height:1.28}
-h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
+/* 고딕 800 큰 제목 + 좁은 자간은 기업 발표자료처럼 읽힙니다.
+   워드마크와 같은 명조로 통일하면 훨씬 부드럽고, 브랜드와도 붙습니다. */
+h1,h2,h3{
+  margin:0;font-family:"Gowun Batang",serif;font-weight:700;
+  letter-spacing:-.01em;text-wrap:balance;
+}
+h1{font-size:clamp(32px,4.8vw,52px);line-height:1.4}
+h2{font-size:clamp(25px,3.3vw,36px);line-height:1.42}
+h3{font-size:clamp(18px,2.1vw,21px);line-height:1.5}
 
+/* 대문자 영문 + 넓은 자간 라벨이 "보고서" 느낌의 제일 큰 원인이었습니다.
+   한글로 바꾸고 평범한 크기로 둡니다. */
 .kicker{
-  font-family:var(--disp);font-weight:600;font-size:12px;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
-  margin:0 0 20px;
+  font-family:var(--sans);font-weight:700;font-size:13px;
+  letter-spacing:0;color:var(--accent);
+  margin:0 0 12px;
 }
 .lede{
   font-size:clamp(16px,1.9vw,19px);line-height:1.8;color:var(--ink2);
@@ -274,13 +281,9 @@ h3{font-size:clamp(18px,2.2vw,22px);line-height:1.35}
   display:grid;grid-template-columns:repeat(4,1fr);
 }
 @media(max-width:760px){.trust{grid-template-columns:repeat(2,1fr)}}
-.trust div{
-  padding:24px 18px;text-align:center;border-left:1px solid var(--line);
-}
-.trust div:first-child{border-left:0}
+.trust div{padding:24px 18px;text-align:center}
 @media(max-width:760px){
-  .trust div:nth-child(odd){border-left:0}
-  .trust div:nth-child(n+3){border-top:1px solid var(--line)}
+  .trust div{padding:18px 12px}
 }
 .trust b{display:block;font-size:14.5px;font-weight:700;letter-spacing:-.02em}
 .trust span{display:block;margin-top:3px;font-size:12.5px;color:var(--ash)}
@@ -411,8 +414,8 @@ a.pcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 
 .pcard .info{padding:20px 20px 22px;display:flex;flex-direction:column;gap:5px;flex:1}
 .pcard .cat{
-  font-family:var(--disp);font-weight:600;font-size:11px;letter-spacing:.17em;
-  text-transform:uppercase;color:var(--accent);
+  font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:0;
+  color:var(--accent);
 }
 .pcard h3{font-size:18px}
 .pcard .desc{font-size:13.5px;color:var(--ink2);line-height:1.65;margin:0}
@@ -453,8 +456,8 @@ a.pcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .crumb span.sep{margin:0 8px;opacity:.5}
 
 .pinfo .cat{
-  font-family:var(--disp);font-weight:600;font-size:11.5px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--accent);
+  font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:0;
+  color:var(--accent);
 }
 .pinfo h1{margin:10px 0 0;font-size:clamp(28px,3.8vw,42px)}
 .pinfo .price{
@@ -886,7 +889,7 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .qbig b{font-weight:700;color:var(--accent)}
 .qlist{list-style:none;margin:26px 0 0;padding:26px 0 0;border-top:1px solid var(--line)}
 .qlist li{display:flex;gap:16px;padding:9px 0;font-size:14.5px}
-.qlist .k{flex:0 0 6.5em;color:var(--ash);font-size:13px}
+.qlist .k{flex:0 0 6.5em;color:var(--ash);font-size:13.5px}
 .qlist .v{color:var(--ink);font-weight:500}
 
 .deeplink{margin:clamp(30px,4vw,44px) 0 0}
@@ -1042,15 +1045,15 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 }
 
 .finfo .cat{
-  font-family:var(--disp);font-weight:600;font-size:11.5px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--accent);
+  font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:0;
+  color:var(--accent);
 }
 .finfo h3{margin:8px 0 0;font-size:clamp(24px,3vw,32px)}
 .finfo .lede{margin-top:14px;max-width:26em}
 
-.flist{list-style:none;margin:26px 0 0;padding:22px 0 0;border-top:1px solid var(--line2)}
-.flist li{display:flex;gap:16px;padding:9px 0;font-size:14.5px;align-items:baseline}
-.flist .k{flex:0 0 8em;color:var(--ash);font-size:13px}
+.flist{list-style:none;margin:24px 0 0;padding:0}
+.flist li{display:flex;gap:18px;padding:7px 0;font-size:14.5px;align-items:baseline}
+.flist .k{flex:0 0 8em;color:var(--ash);font-size:13.5px}
 .flist .v{color:var(--ink);flex:1}
 .flist .swat{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13.5px}
 .flist .swat i{
