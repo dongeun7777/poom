@@ -204,10 +204,10 @@
       colors: ['cream', 'oat', 'mist', 'sage'],
       photoColor: 'cream',
       photos: [
-        'assets/img/sleep-baby-cream-front.jpg?v=20260910h',
-        'assets/img/sleep-baby-cream-back.jpg?v=20260910h',
-        'assets/img/sleep-top-oat-front.jpg?v=20260910h',
-        'assets/img/sleep-top-oat-back.jpg?v=20260910h'
+        'assets/img/sleep-baby-cream-front.jpg?v=20260910i',
+        'assets/img/sleep-baby-cream-back.jpg?v=20260910i',
+        'assets/img/sleep-top-oat-front.jpg?v=20260910i',
+        'assets/img/sleep-top-oat-back.jpg?v=20260910i'
       ],
       photoAlt: [
         '아기 슬립수트 크림색 앞면. 목 뒤는 프린트 라벨이고 여밈을 오트색 실로 박았습니다.',
