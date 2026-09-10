@@ -1282,16 +1282,29 @@ a.card .go::after{content:"→";color:var(--thread);font-weight:400}
 .g4.facts{gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
 .fact{
   border:0;border-radius:0;background:none;box-shadow:none;
-  text-align:left;padding:26px 26px 26px 0;
+  text-align:left;
+  /* 양쪽 여백을 대칭으로. 왼쪽을 0으로 두면 두 번째 칸부터
+     글자가 세로 구분선에 그대로 붙습니다. 바깥쪽 두 칸만
+     본문 여백선에 맞추려고 바깥 여백을 없앱니다. */
+  padding:26px 28px;
   border-right:1px solid var(--line);
 }
-.facts .fact:last-child{border-right:0}
+.facts .fact:first-child{padding-left:0}
+.facts .fact:last-child{border-right:0;padding-right:0}
 .fact b{display:block;font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.5}
 .fact span{display:block;margin-top:6px;font-size:13px;color:var(--ash);line-height:1.6}
+
+/* 두 칸으로 접히면 왼쪽 칸이 홀수, 오른쪽 칸이 짝수가 됩니다 */
 @media(max-width:900px){
-  .facts .fact:nth-child(2n){border-right:0}
+  .fact{padding:22px 22px}
+  .facts .fact:nth-child(odd){padding-left:0}
+  .facts .fact:nth-child(even){border-right:0;padding-right:0}
   .facts .fact:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .fact{padding:22px 20px 22px 0}
+}
+@media(max-width:560px){
+  .fact{padding:20px 16px}
+  .fact b{font-size:14.5px}
+  .fact span{font-size:12.5px}
 }
 
 .panel.tight{padding-top:clamp(28px,3.4vw,44px);padding-bottom:0}
