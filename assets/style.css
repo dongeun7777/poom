@@ -111,6 +111,9 @@ body{
 /* 좁은 화면에서는 하드코딩한 줄바꿈을 걷어냅니다.
    데스크톱에서 잡아둔 개행 위치가 모바일에서는 거의 항상 틀립니다. */
 @media(max-width:640px){ br.wide{display:none} }
+/* 갈라지면 안 되는 낱말 묶음. 좁은 화면에서는 br.wide 가 사라지므로,
+   "배냇 50cm" 처럼 붙어 있어야 뜻이 사는 자리는 이걸로 따로 묶습니다. */
+.nb{white-space:nowrap}
 img{max-width:100%;display:block}
 [hidden]{display:none !important}
 a{color:inherit}
