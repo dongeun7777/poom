@@ -6,7 +6,7 @@
       .fold{fill:none;stroke:var(--mk-line,#23201C);stroke-width:.9;stroke-dasharray:3 2.5;opacity:.35}
       .snap{fill:var(--mk-line,#23201C);opacity:.7}
       .seam{fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:1.8 2.6}
-      .lb{fill:var(--mk-ink2,#5B554D);font-family:"Gothic A1","Malgun Gothic",sans-serif;font-size:13px;font-weight:700}
+      .lb{fill:var(--mk-ink2,#5B554D);font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;font-size:13px;font-weight:700}
       .mn{fill:var(--mk-ash,#948C81);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:9.5px;letter-spacing:1.1px}
     </style>
     <g id="mk-suit">
@@ -33,7 +33,7 @@
   <text class="lb" x="101" y="312" text-anchor="middle">지금</text>
   <text class="mn" x="101" y="328" text-anchor="middle">원단과 같은 색</text>
 
-  <g transform="translate(236,10) scale(.9)" color="#C8B48F"><use href="#mk-suit"/></g>
+  <g transform="translate(236,10) scale(.9)" color="#A9843F"><use href="#mk-suit"/></g>
   <text class="lb" x="331" y="312" text-anchor="middle">오트색 실</text>
-  <text class="mn" x="331" y="328" text-anchor="middle">#C8B48F</text>
+  <text class="mn" x="331" y="328" text-anchor="middle">#A9843F</text>
 </svg>

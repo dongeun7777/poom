@@ -1,92 +1,95 @@
 /* ==========================================================================
-   솜구름 — prototype v2
-   따뜻한 오트/크림 바탕 + 파스텔 가먼트 틴트 + 데님 네이비 액센트 하나
-   타입: Outfit(영문·디스플레이) / Gothic A1(국문) / IBM Plex Mono(스펙만)
+   솜구름 — prototype v3 「종이와 실」
+   바탕은 종이 한 장, 구조는 먹선 하나, 색은 옷에만.
+   타입: Gowun Batang(제목·워드마크) / Pretendard(본문) / IBM Plex Mono(규격만)
    ========================================================================== */
 
 :root{
-  /* 흰 바탕 + 하늘 헤더.
-     전체를 하늘색으로 물들이면(계단 방식) 크림색 옷이 파랑에 묻힙니다.
-     바탕을 비우고 하늘은 헤더 띠 하나에만 두는 쪽이 옷이 삽니다.
-     패널은 하늘의 제일 옅은 끝을 써서 헤더와 같은 집안임을 유지합니다.
+  /* ------------------------------------------------------------------
+     종이와 실 (2026-09-10 개편)
 
-       헤더   #C2D7E4 -> #DDE9F0
-       패널   #F2F6F8   (--sand)
-       바탕   #FDFCF9   (--cream)  순백은 병원처럼 차갑습니다. 2~3점만 크림 쪽으로.
-       카드   #FFFFFF   (--card)   바탕보다 밝아서 저절로 떠 보입니다.
+     이전 버전이 촌스러웠던 이유는 색이나 폰트 하나가 아니라 문법이었습니다.
+       · 파스텔 하늘 + 뭉게구름 헤더 → 유아용품 쇼핑몰의 문법.
+         5~9만원짜리 옷을 그 위에 올리면 값이 내려갑니다.
+       · 둥근 흰 카드 + 그림자의 반복 → 업무용 대시보드의 문법.
+       · 정해 둔 명조 워드마크는 안 쓰고 고딕으로 다 쓴 것.
 
-     따뜻한 색(--thread, --oat, --clay)은 실과 원단 자리에만. */
-  --cream:#FDFCF9;
-  --sand:#F5F6F7;
-  --card:#FFFFFF;
-  /* 옷이 놓이는 면. 구조색(하늘 계열)이 아니라 원단 쪽 색입니다.
-     크림 옷이 살짝 더 짙은 크림 위에 놓여 '원단 위 원단' 으로 읽힙니다. */
-  --linen:#F5F2EC;
-  --ink:#1F2A31;
-  --ink2:#4E5C65;
-  --ash:#7E8B93;
-  --line:#E4EAEE;
-  --line2:#C9D5DC;
+     바꾼 원칙: 바탕은 종이 한 장, 구조는 먹선 하나, 색은 옷에만.
+     페이지에서 유일한 유채색은 솔기에 쓰는 실(--thread)입니다.
+     ------------------------------------------------------------------ */
 
-  --accent:#2E4057;
-  --accent-2:#3E5573;
-  --accent-soft:#DEE9F7;
-  --on-accent:#FBF8F3;
+  --cream:#FAF7F1;   /* 바탕 — 따뜻한 종이 */
+  --sand:#F4EFE5;    /* 한 톤 짙은 면 */
+  --card:#FFFDF8;    /* 순백은 종이 위에서 형광처럼 뜹니다 */
+  --linen:#EBE3D4;   /* 옷이 놓이는 면. 크림 옷이 살아야 해서 바탕보다 짙게 */
 
-  --oat:#E8DCC8;
-  --powder:#EAD5D0;
-  --sage:#D5DFD1;
-  --mist:#D8E5EE;
-  --clay:#DCC5B8;
+  --ink:#191510;     /* 먹. 순검정은 종이에 뚫린 구멍처럼 보입니다 */
+  --ink2:#57503F;
+  --ash:#8E8676;
+  --line:#E2D9C8;    /* 헤어라인 — 카드 대신 이 선으로 구획합니다 */
+  --line2:#CBC0AB;
 
-  --garment-line:rgba(31,42,49,.26);
-  /* 눕힌 솔기에 쓰는 실. 전 컬러 공통 한 가지 — 실 교체를 한 번으로 묶습니다. */
-  --thread:#C8B48F;
-  /* 헤더 하늘. 뭉게구름이 뜨려면 바탕이 확실한 하늘색이어야 합니다. */
-  /* 하늘 색상. 앞서 쓰던 #C2D7E4 는 색상이 200도라 청록 쪽으로 기울어
-     나란히 놓고 보면 칙칙했습니다. 211도로 옮겨 진짜 하늘 쪽으로. */
-  --sky-top:#BDD7EF;
-  --sky-bot:#DCE8F6;
-  --cloud:#FAFCFD;
-  --shadow-s:0 2px 10px rgba(31,42,49,.06);
-  --shadow-m:0 10px 34px rgba(31,42,49,.10);
-  --shadow-l:0 22px 60px rgba(31,42,49,.15);
+  --accent:#1E1A13;
+  --accent-2:#3C3426;
+  --accent-soft:#EFE8DA;
+  --on-accent:#FAF7F1;
+
+  --oat:#E9DCC4;
+  --powder:#EBD6CF;
+  --sage:#D7E0D2;
+  --mist:#D9E4EC;
+  --clay:#DEC6B7;
+
+  --garment-line:rgba(25,21,16,.32);
+  /* 눕힌 솔기에 쓰는 실. 전 컬러 공통 한 가지이고,
+     화면에서도 이 색 하나만 유채색으로 씁니다 — 강조는 전부 이 실에서 나옵니다. */
+  --thread:#A9843F;
+
+  /* 걷어낸 하늘. 이름은 다른 페이지가 아직 참조하므로 종이 쪽으로 돌려 둡니다. */
+  --sky-top:#F4EFE5;
+  --sky-bot:#FAF7F1;
+  --cloud:#FAF7F1;
+
+  /* 그림자를 쓰지 않습니다. 떠 보이게 하는 대신 선으로 구획합니다.
+     서랍처럼 정말로 위에 떠야 하는 것만 --shadow-l 을 씁니다. */
+  --shadow-s:none;
+  --shadow-m:none;
+  --shadow-l:0 30px 80px rgba(25,21,16,.22);
 
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  --sans:"Gothic A1","Outfit",system-ui,-apple-system,"Malgun Gothic",sans-serif;
-  --disp:"Outfit","Gothic A1",system-ui,sans-serif;
+  --serif:"Gowun Batang",Batang,serif;
+  --sans:"Pretendard Variable",Pretendard,"Gothic A1",system-ui,-apple-system,"Malgun Gothic",sans-serif;
+  --disp:var(--serif);
 
-  --r:10px;
-  --r-lg:18px;
-  --nav-h:66px;
-  --pad:clamp(20px,5vw,44px);
+  --r:2px;
+  --r-lg:2px;
+  --nav-h:74px;
+  --pad:clamp(20px,5vw,48px);
 }
 
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --sky-top:#232F38; --sky-bot:#1E272E; --cloud:#2C3A43;
-    --cream:#141A1E; --sand:#1B2429; --card:#212B31; --linen:#2A2620;
-    --ink:#E6EDF1; --ink2:#A9B6BD; --ash:#7D8B93;
-    --line:#27333A; --line2:#37464F;
-    --accent:#A8BDD6; --accent-2:#BACBDF; --accent-soft:#252C36; --on-accent:#171B21;
-    --oat:#4A4235; --powder:#4C3B37; --sage:#3B453A; --mist:#38424A; --clay:#4A3B33;
-    --garment-line:rgba(230,237,241,.26);
-    --shadow-s:0 2px 10px rgba(0,0,0,.30);
-    --shadow-m:0 10px 34px rgba(0,0,0,.45);
-    --shadow-l:0 22px 60px rgba(0,0,0,.60);
+    --cream:#14120E; --sand:#1B1813; --card:#1E1A15; --linen:#272117;
+    --ink:#F2EDE3; --ink2:#B2A997; --ash:#867D6D;
+    --line:#2C2720; --line2:#433B2F;
+    --accent:#EDE5D5; --accent-2:#FFFFFF; --accent-soft:#2A251C; --on-accent:#14120E;
+    --oat:#463D2E; --powder:#48372F; --sage:#38412F; --mist:#333D45; --clay:#453529;
+    --garment-line:rgba(242,237,227,.32);
+    --thread:#C9A45C;
+    --sky-top:#1B1813; --sky-bot:#14120E; --cloud:#14120E;
+    --shadow-l:0 30px 80px rgba(0,0,0,.62);
   }
 }
 :root[data-theme="dark"]{
-  --sky-top:#232F38; --sky-bot:#1E272E; --cloud:#2C3A43;
-  --cream:#141A1E; --sand:#1B2429; --card:#212B31; --linen:#2A2620;
-  --ink:#E6EDF1; --ink2:#A9B6BD; --ash:#7D8B93;
-  --line:#27333A; --line2:#37464F;
-  --accent:#A8BDD6; --accent-2:#BACBDF; --accent-soft:#252C36; --on-accent:#171B21;
-  --oat:#4A4235; --powder:#4C3B37; --sage:#3B453A; --mist:#38424A; --clay:#4A3B33;
-  --garment-line:rgba(230,237,241,.26);
-  --shadow-s:0 2px 10px rgba(0,0,0,.30);
-  --shadow-m:0 10px 34px rgba(0,0,0,.45);
-  --shadow-l:0 22px 60px rgba(0,0,0,.60);
+  --cream:#14120E; --sand:#1B1813; --card:#1E1A15; --linen:#272117;
+  --ink:#F2EDE3; --ink2:#B2A997; --ash:#867D6D;
+  --line:#2C2720; --line2:#433B2F;
+  --accent:#EDE5D5; --accent-2:#FFFFFF; --accent-soft:#2A251C; --on-accent:#14120E;
+  --oat:#463D2E; --powder:#48372F; --sage:#38412F; --mist:#333D45; --clay:#453529;
+  --garment-line:rgba(242,237,227,.32);
+  --thread:#C9A45C;
+  --sky-top:#1B1813; --sky-bot:#14120E; --cloud:#14120E;
+  --shadow-l:0 30px 80px rgba(0,0,0,.62);
 }
 
 *{box-sizing:border-box}
@@ -118,25 +121,36 @@ a{color:inherit}
 
 /* ============================================================ typography = */
 
-/* 고딕 800 큰 제목 + 좁은 자간은 기업 발표자료처럼 읽힙니다.
-   워드마크와 같은 명조로 통일하면 훨씬 부드럽고, 브랜드와도 붙습니다. */
+/* 제목은 워드마크와 같은 명조 하나로 갑니다.
+   본문은 Gothic A1 대신 Pretendard — 같은 고딕이라도 한글 자간·획 굵기가
+   최근 것이라, 폰트만 바꿔도 화면이 몇 년 젊어집니다. */
 h1,h2,h3{
-  margin:0;font-family:"Gowun Batang",serif;font-weight:700;
-  letter-spacing:-.01em;text-wrap:balance;
+  margin:0;font-family:var(--serif);font-weight:700;
+  letter-spacing:-.005em;text-wrap:balance;
 }
-h1{font-size:clamp(32px,4.8vw,52px);line-height:1.4}
-h2{font-size:clamp(25px,3.3vw,36px);line-height:1.42}
-h3{font-size:clamp(18px,2.1vw,21px);line-height:1.5}
+h1{font-size:clamp(34px,5.2vw,62px);line-height:1.3}
+h2{font-size:clamp(26px,3.5vw,40px);line-height:1.34}
+h3{font-size:clamp(19px,2.1vw,22px);line-height:1.5}
 
-/* 대문자 영문 + 넓은 자간 라벨이 "보고서" 느낌의 제일 큰 원인이었습니다.
-   한글로 바꾸고 평범한 크기로 둡니다. */
+/* 섹션 표찰. 한글에 넓은 자간을 주면 조사가 흩어져 보이므로
+   자간은 0으로 두고, 앞에 붙는 번호와 실선만 규격 느낌을 냅니다. */
 .kicker{
-  font-family:var(--sans);font-weight:700;font-size:13px;
-  letter-spacing:0;color:var(--accent);
-  margin:0 0 12px;
+  display:flex;align-items:center;gap:11px;
+  font-family:var(--sans);font-weight:600;font-size:13px;
+  letter-spacing:0;color:var(--ink2);
+  margin:0 0 16px;
 }
+.kicker .no{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.06em;color:var(--thread);
+  display:inline-flex;align-items:center;gap:11px;
+}
+.kicker .no::after{content:"";width:18px;height:1px;background:var(--line2)}
+/* 번호가 없는 표찰에는 실 한 땀만 */
+.kicker:not(:has(.no))::before{content:"";flex:none;width:16px;height:2px;background:var(--thread)}
+
 .lede{
-  font-size:clamp(16px,1.9vw,19px);line-height:1.8;color:var(--ink2);
+  font-size:clamp(16px,1.65vw,18.5px);line-height:1.85;color:var(--ink2);
   margin:20px 0 0;max-width:26em;font-weight:400;text-wrap:pretty;
 }
 .small{font-size:14.5px;color:var(--ink2);line-height:1.75}
@@ -147,90 +161,94 @@ h3{font-size:clamp(18px,2.1vw,21px);line-height:1.5}
 
 /* ================================================================== nav == */
 
+/* 하늘 그라데이션과 뭉게구름을 걷어냅니다. 머리띠는 종이 위 실선 하나.
+   로고도 결정해 둔 대로 심볼 없이 명조 워드마크만 남깁니다. */
 .nav{
   position:sticky;top:0;z-index:40;
-  /* 헤더 자체가 하늘입니다. 스크롤해서 내용 위에 떠도 이 색을 유지합니다. */
-  background:linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bot) 100%);
-  border-bottom:1px solid color-mix(in srgb,var(--sky-top) 62%,var(--line));
-  overflow:hidden;
+  background:color-mix(in srgb,var(--cream) 88%,transparent);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--line);
 }
-/* 헤더 안에 흐릿한 구름 한 겹 */
-.navsky{
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  width:100%;height:100%;
-}
+.navsky{display:none}
 .nav .wrap{position:relative;z-index:1}
+.nav .wrap{display:flex;align-items:center;gap:24px;height:var(--nav-h)}
 
-.nav .wrap{display:flex;align-items:center;gap:22px;height:var(--nav-h)}
-
-.mark{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink)}
-/* 구름 윤곽을 옷 솔기와 같은 실로 박습니다. 로고와 표식이 같은 물건입니다. */
-.mark .cloud{
-  width:26px;height:17px;flex:none;
-  fill:none;stroke:var(--thread);stroke-width:3.2;
-  stroke-linecap:round;stroke-dasharray:2.6 3.8;
-}
-@media(max-width:860px){ .mark .cloud{width:23px;height:15px} }
+.mark{display:flex;align-items:baseline;gap:11px;text-decoration:none;color:var(--ink)}
+.mark .cloud{display:none}
 .mark b{
-  font-family:"Gowun Batang",serif;
-  font-size:23px;font-weight:700;line-height:1;white-space:nowrap;
+  font-family:var(--serif);
+  font-size:25px;font-weight:700;line-height:1;white-space:nowrap;
   /* 자간을 벌리면 마지막 글자 뒤에도 공백이 붙어 오른쪽이 뜬다 — 같은 값만큼 당겨준다 */
-  letter-spacing:.16em;margin-right:-.16em;
+  letter-spacing:.18em;margin-right:-.18em;
 }
 .mark i{
-  font-family:var(--disp);font-style:normal;font-weight:600;
-  font-size:11px;letter-spacing:.26em;color:var(--ash);padding-top:2px;
+  font-family:var(--mono);font-style:normal;font-weight:400;
+  font-size:10px;letter-spacing:.22em;color:var(--ash);text-transform:uppercase;
 }
+/* 알약 배지 대신 실 한 점 + 평범한 글씨 */
 .pill{
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
-  background:var(--accent-soft);color:var(--accent);
-  padding:4px 9px;border-radius:100px;white-space:nowrap;
+  position:relative;padding:0 0 0 14px;border-radius:0;background:none;
+  font-family:var(--sans);font-size:11.5px;font-weight:500;letter-spacing:0;
+  text-transform:none;color:var(--ash);white-space:nowrap;
+}
+.pill::before{
+  content:"";position:absolute;left:0;top:50%;margin-top:-2.5px;
+  width:5px;height:5px;border-radius:100px;background:var(--thread);
 }
 
-.nav ul{display:flex;gap:28px;list-style:none;margin:0 auto;padding:0}
+.nav ul{display:flex;gap:30px;list-style:none;margin:0 auto;padding:0}
 .nav .lnk{
-  color:var(--ink);
-  font-size:14.5px;font-weight:500;color:var(--ink2);text-decoration:none;
-  padding:6px 0;border-bottom:2px solid transparent;
+  position:relative;
+  font-size:14px;font-weight:500;color:var(--ink2);text-decoration:none;
+  padding:5px 0;border-bottom:0;
+}
+.nav .lnk::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:var(--ink);transform:scaleX(0);transform-origin:left;
+  transition:transform .2s ease;
 }
 .nav .lnk:hover{color:var(--ink)}
-.nav .lnk[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+.nav .lnk:hover::after{transform:scaleX(1)}
+.nav .lnk[aria-current="page"]{color:var(--ink)}
+.nav .lnk[aria-current="page"]::after{transform:scaleX(1);background:var(--thread);height:1.5px}
+@media (prefers-reduced-motion:reduce){.nav .lnk::after{transition:none}}
 
+/* 장바구니도 버튼이 아니라 글씨. 아직 팔지 않는 가게에서 제일 무거운
+   요소가 장바구니일 이유가 없습니다. */
 .cartbtn{
-  /* 검정 알약이 헤더 오른쪽에서 제일 무거웠습니다. 테두리만 남깁니다. */
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--sans);font-size:14px;font-weight:600;
-  background:transparent;color:var(--ink);border:1.5px solid var(--line2);
-  padding:9px 16px;cursor:pointer;border-radius:100px;
-  transition:border-color .15s ease,color .15s ease;
+  display:inline-flex;align-items:baseline;gap:7px;
+  font-family:var(--sans);font-size:13.5px;font-weight:500;
+  background:none;color:var(--ink2);border:0;border-radius:0;
+  padding:0;cursor:pointer;
+  transition:color .15s ease;
 }
-.cartbtn:hover{border-color:var(--accent);color:var(--accent)}
-.cartbtn:hover{background:var(--accent)}
+.cartbtn:hover{color:var(--ink);background:none;border-color:transparent}
 .cartbtn .cnt{
-  font-variant-numeric:tabular-nums;font-size:12px;
-  background:var(--sand);color:var(--ink2);
-  min-width:20px;height:20px;border-radius:100px;
-  display:grid;place-items:center;padding:0 5px;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:11.5px;
+  background:none;color:var(--ash);
+  min-width:0;height:auto;border-radius:0;display:inline;padding:0;
 }
+
 /* 폰에서는 메뉴를 숨기지 않고 헤더 아래 한 줄로 내립니다.
-   항목이 셋뿐이라 햄버거를 열게 하는 것보다 바로 보이는 편이 낫습니다. */
+   항목이 넷뿐이라 햄버거를 열게 하는 것보다 바로 보이는 편이 낫습니다. */
 @media(max-width:860px){
   .nav .wrap{
     flex-wrap:wrap;height:auto;
-    padding-top:11px;gap:0 14px;
+    padding-top:13px;gap:0 12px;
   }
   .nav .pill{display:none}
-  .cartbtn{margin-left:auto;padding:9px 15px;font-size:13.5px}
-  .mark b{font-size:21px}
+  .cartbtn{margin-left:auto;font-size:13px}
+  .mark b{font-size:22px}
 
   .nav ul{
-    order:3;flex-basis:100%;margin:9px 0 0;gap:22px;
+    order:3;flex-basis:100%;margin:11px 0 0;gap:22px;
     overflow-x:auto;-webkit-overflow-scrolling:touch;
     scrollbar-width:none;
   }
   .nav ul::-webkit-scrollbar{display:none}
   .nav .lnk{
-    font-size:14.5px;white-space:nowrap;padding:0 0 10px;
+    font-size:14px;white-space:nowrap;padding:0 0 11px;
   }
 }
 
@@ -252,27 +270,29 @@ h3{font-size:clamp(18px,2.1vw,21px);line-height:1.5}
 .heroart .figure{width:82%;max-width:380px}
 .heroart .stamp{
   position:absolute;left:14px;bottom:14px;z-index:2;
-  font-family:var(--mono);font-size:10px;letter-spacing:.08em;
-  color:var(--ink);background:color-mix(in srgb,var(--cream) 86%,transparent);
+  font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0;
+  color:var(--ink2);background:color-mix(in srgb,var(--cream) 86%,transparent);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  padding:6px 11px;border-radius:100px;
+  padding:6px 11px;border-radius:2px;
 }
 
 /* =============================================================== buttons = */
 
+/* 알약 → 각. 둥근 알약은 앱 UI의 문법이고, 옷 파는 화면에서는
+   글자와 선이 각져 있을 때 훨씬 단정해 보입니다. */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
-  font-family:var(--sans);font-size:15px;font-weight:600;line-height:1;
-  /* 새까만 알약 대신 데님. 같은 무게인데 훨씬 부드럽습니다. */
-  background:var(--accent);color:var(--on-accent);border:1.5px solid var(--accent);
-  padding:16px 28px;border-radius:100px;cursor:pointer;text-decoration:none;
-  transition:background .15s ease,border-color .15s ease,color .15s ease;
+  font-family:var(--sans);font-size:14.5px;font-weight:600;line-height:1;
+  letter-spacing:-.01em;
+  background:var(--accent);color:var(--on-accent);border:1px solid var(--accent);
+  padding:17px 30px;border-radius:2px;cursor:pointer;text-decoration:none;
+  transition:background .18s ease,border-color .18s ease,color .18s ease;
 }
 .btn:hover{background:var(--accent-2);border-color:var(--accent-2);color:var(--on-accent)}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line2)}
-.btn.ghost:hover{background:transparent;border-color:var(--accent);color:var(--accent)}
+.btn.ghost:hover{background:transparent;border-color:var(--ink);color:var(--ink)}
 .btn.block{width:100%}
-.btn.lg{padding:18px 34px;font-size:16px}
+.btn.lg{padding:19px 36px;font-size:15.5px}
 .btn:disabled{opacity:.4;cursor:not-allowed}
 .btn:disabled:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 
@@ -317,7 +337,7 @@ h3{font-size:clamp(18px,2.1vw,21px);line-height:1.5}
 .sizechip{
   font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;
   background:var(--card);border:1px solid var(--line2);color:var(--ink);
-  padding:10px 15px;border-radius:100px;
+  padding:10px 15px;border-radius:2px;
 }
 .panel.deep .sizechip{background:var(--card);border-color:var(--line2);color:var(--ink)}
 .sizelegend{
@@ -372,7 +392,7 @@ h3{font-size:clamp(18px,2.1vw,21px);line-height:1.5}
 .tocard .h b{font-size:17px;font-weight:700;letter-spacing:-.02em}
 .tocard .h .g{
   font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-  padding:3px 9px;border-radius:100px;background:var(--sand);color:var(--ink2);
+  padding:3px 9px;border-radius:2px;background:var(--sand);color:var(--ink2);
 }
 .tocard p{margin:0;font-size:14.5px;line-height:1.8;opacity:.85}
 
@@ -411,7 +431,7 @@ a.pcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .pcard .badge{
   position:absolute;top:14px;left:14px;
   font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.02em;
-  background:var(--ink);color:var(--cream);padding:6px 11px;border-radius:100px;
+  background:var(--ink);color:var(--cream);padding:6px 11px;border-radius:2px;
 }
 .pcard .badge.soft{background:var(--card);color:var(--ink)}
 
@@ -496,7 +516,7 @@ a.pcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .sizebtn:disabled:hover{border-color:var(--line2)}
 
 .qtyrow{display:flex;align-items:center;gap:14px;margin-top:26px;flex-wrap:wrap}
-.qty{display:inline-flex;border:1.5px solid var(--line2);border-radius:100px;overflow:hidden}
+.qty{display:inline-flex;border:1.5px solid var(--line2);border-radius:2px;overflow:hidden}
 .qty button{
   width:44px;height:48px;background:var(--card);border:0;color:var(--ink);
   font-size:18px;cursor:pointer;line-height:1;
@@ -526,7 +546,7 @@ a.pcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .acc .in p{margin:0 0 11px;font-size:14.5px;color:var(--ink2);line-height:1.8}
 .acc .in p:last-child{margin-bottom:0}
 .acc .kv{display:grid;grid-template-columns:84px 1fr;gap:9px 18px;margin:0}
-.acc .kv dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ash)}
+.acc .kv dt{font-family:var(--sans);font-size:12.5px;font-weight:500;letter-spacing:0;color:var(--ash)}
 .acc .kv dd{margin:0;font-size:14px;font-variant-numeric:tabular-nums}
 
 /* sticky buy bar (mobile) */
@@ -558,8 +578,8 @@ a.pcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .panel:not(.deep) .speclist li{border-bottom-color:var(--line)}
 .speclist li:last-child{border-bottom:0}
 .speclist dt,.speclist .k{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
-  color:color-mix(in srgb,var(--on-accent) 60%,transparent);
+  font-family:var(--sans);font-size:12.5px;font-weight:500;letter-spacing:0;
+  color:var(--ash);
 }
 .panel:not(.deep) .speclist .k{color:var(--ash)}
 .speclist .v{font-size:15px;font-variant-numeric:tabular-nums}
@@ -579,8 +599,8 @@ a.pcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .rulecard h3{font-size:19px}
 .rulecard p{margin:11px 0 0;font-size:14.5px;color:var(--ink2);line-height:1.8}
 .rulecard .mn{
-  display:block;margin-top:16px;font-family:var(--mono);font-size:10.5px;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--ash);
+  display:block;margin-top:16px;font-family:var(--sans);font-size:12px;
+  font-weight:600;letter-spacing:0;text-transform:none;color:var(--ash);
 }
 
 /* ================================================================ table == */
@@ -599,8 +619,8 @@ a.pcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 table{border-collapse:collapse;width:100%;min-width:560px}
 th,td{text-align:left;padding:15px 20px;border-bottom:1px solid var(--line);font-size:14.5px}
 th{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ash);font-weight:500;background:var(--sand);
+  font-family:var(--sans);font-size:12.5px;letter-spacing:0;text-transform:none;
+  color:var(--ash);font-weight:600;background:var(--sand);
 }
 th.num,td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;font-weight:600}
 tbody tr:last-child td{border-bottom:0}
@@ -631,10 +651,10 @@ caption{caption-side:bottom;text-align:left;padding:14px 20px;font-size:12.5px;c
 /* ============================================================= waitlist == */
 
 .join{
-  border-radius:var(--r-lg);background:var(--sand);border:1px solid var(--line);
-  padding:clamp(36px,5vw,68px) clamp(22px,5vw,66px);text-align:center;
+  border-radius:2px;background:var(--sand);border:1px solid var(--line);
+  padding:clamp(38px,5.2vw,72px) clamp(24px,5vw,66px);text-align:center;
 }
-.join .kicker{margin-bottom:16px}
+.join .kicker{margin-bottom:18px;justify-content:center}
 .join h2{max-width:14em;margin:0 auto}
 .join .say{margin:16px auto 0;color:var(--ink2);max-width:26em;font-size:16px;text-wrap:pretty}
 
@@ -644,7 +664,7 @@ caption{caption-side:bottom;text-align:left;padding:14px 20px;font-size:12.5px;c
   margin:30px auto 0;max-width:460px;
   display:flex;align-items:center;gap:8px;
   background:var(--card);border:1.5px solid var(--line2);
-  border-radius:100px;padding:5px 5px 5px 22px;
+  border-radius:2px;padding:5px 5px 5px 22px;
   transition:border-color .15s ease,box-shadow .15s ease;
 }
 .joinform:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
@@ -662,7 +682,7 @@ caption{caption-side:bottom;text-align:left;padding:14px 20px;font-size:12.5px;c
 @media (prefers-reduced-motion:reduce){.joinform{transition:none}}
 input[type=email],input[type=text]{
   flex:1 1 250px;min-width:0;font-family:var(--sans);font-size:15.5px;color:var(--ink);
-  background:var(--card);border:1.5px solid var(--line2);padding:16px 20px;border-radius:100px;
+  background:var(--card);border:1.5px solid var(--line2);padding:16px 20px;border-radius:2px;
 }
 input::placeholder{color:var(--ash)}
 input:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-color:transparent}
@@ -676,7 +696,7 @@ input:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-
 
 .wlcount{
   margin:20px auto 0;display:inline-flex;align-items:baseline;gap:9px;
-  background:var(--card);border-radius:100px;padding:9px 18px;
+  background:var(--card);border-radius:2px;padding:9px 18px;
 }
 .wlcount b{font-size:19px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
 .wlcount span{font-size:12.5px;color:var(--ash)}
@@ -718,7 +738,7 @@ input:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-
 }
 .drawer .dhd h2{font-size:17px;letter-spacing:-.02em}
 .xbtn{
-  background:var(--sand);border:0;color:var(--ink2);cursor:pointer;border-radius:100px;
+  background:var(--sand);border:0;color:var(--ink2);cursor:pointer;border-radius:2px;
   width:34px;height:34px;display:grid;place-items:center;font-size:15px;line-height:1;
 }
 .xbtn:hover{background:var(--accent);color:var(--on-accent)}
@@ -756,7 +776,7 @@ input:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-
 .toast{
   position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);z-index:60;
   background:var(--ink);color:var(--cream);font-size:14px;font-weight:500;
-  padding:14px 24px;border-radius:100px;box-shadow:var(--shadow-l);
+  padding:14px 24px;border-radius:2px;box-shadow:var(--shadow-l);
   opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;
   max-width:calc(100vw - 40px);text-align:center;
 }
@@ -766,15 +786,22 @@ input:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-
 
 /* ================================================================ footer = */
 
-footer{margin-top:clamp(60px,8vw,110px);border-top:1px solid var(--line);padding:48px 0 64px}
-.fgrid{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap}
-.fcol{display:flex;flex-direction:column;gap:9px}
-.fcol .t{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ash)}
-.fcol a{font-size:14.5px;color:var(--ink2);text-decoration:none}
-.fcol a:hover{color:var(--accent)}
-.fcol .v{font-size:14.5px;color:var(--ink2)}
+footer{
+  margin-top:clamp(70px,9vw,130px);
+  border-top:1px solid var(--ink);
+  padding:clamp(44px,5vw,60px) 0 clamp(56px,6vw,76px);
+}
+.fgrid{display:flex;justify-content:space-between;gap:38px;flex-wrap:wrap}
+.fcol{display:flex;flex-direction:column;gap:10px}
+.fcol .t{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--thread);margin-bottom:2px;
+}
+.fcol a{font-size:14px;color:var(--ink2);text-decoration:none;transition:color .15s ease}
+.fcol a:hover{color:var(--ink)}
+.fcol .v{font-size:14px;color:var(--ink2)}
 .draft{
-  margin:40px 0 0;padding-top:22px;border-top:1px solid var(--line);
+  margin:clamp(34px,4vw,48px) 0 0;padding-top:24px;border-top:1px solid var(--line);
   font-size:12.5px;color:var(--ash);line-height:1.9;
 }
 .draft b{color:var(--ink2);font-weight:600}
@@ -832,7 +859,7 @@ footer{margin-top:clamp(60px,8vw,110px);border-top:1px solid var(--line);padding
 }
 .lgrp{display:flex;flex-direction:column;align-items:center;gap:12px}
 .lname{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;
+  font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:0;
   text-transform:uppercase;color:var(--ash);
 }
 .lgrp .sizerow{justify-content:center}
@@ -849,7 +876,7 @@ footer{margin-top:clamp(60px,8vw,110px);border-top:1px solid var(--line);padding
 }
 .ladnote{
   text-align:center;margin:clamp(22px,2.6vw,30px) 0 0;
-  font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  font-family:var(--sans);font-size:12.5px;letter-spacing:0;
   text-transform:uppercase;color:var(--ash);
 }
 
@@ -864,8 +891,8 @@ footer{margin-top:clamp(60px,8vw,110px);border-top:1px solid var(--line);padding
 a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:translateY(-3px)}
 @media (prefers-reduced-motion:reduce){a.mcard:hover{transform:none}}
 .mcard .mn{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--accent);
+  font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:0;
+  text-transform:none;color:var(--thread);
 }
 .mcard h3{font-size:19px;margin-top:2px}
 .mcard p{margin:0;font-size:14.5px;line-height:1.8;color:var(--ink2);text-wrap:pretty}
@@ -922,56 +949,66 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
    ========================================================================== */
 
 /* ------------------------------------------------------------- 공지 바 -- */
-/* 돌리지 않습니다. 할 말이 하나뿐인데 돌리면 그게 티가 납니다. */
+/* 돌리지 않습니다. 할 말이 하나뿐인데 돌리면 그게 티가 납니다.
+   하늘색 띠 대신 먹 띠 — 종이 맨 위에 찍은 도장처럼 읽힙니다. */
 .notice{
-  /* 하늘의 제일 위 */
-  background:var(--sky-top);color:var(--ink);
-  font-size:12.5px;line-height:1;letter-spacing:-.01em;
+  background:var(--ink);color:var(--on-accent);
+  font-size:12px;line-height:1;letter-spacing:.005em;
 }
 .notice .wrap{
-  height:38px;display:flex;align-items:center;justify-content:center;
-  opacity:.82;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  height:36px;display:flex;align-items:center;justify-content:center;
+  opacity:.88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 @media(max-width:560px){
-  .notice .wrap{height:34px;font-size:11px}
+  .notice .wrap{height:33px;font-size:11px}
 }
 
 /* --------------------------------------------------------- 히어로 배너 -- */
 /* 캐러셀이 아니라 한 장입니다. SKU 4개짜리 브랜드가 3장을 돌리면
-   메시지의 3분의 2가 타이머 뒤에 숨습니다. */
-.banner{background:var(--sand);overflow:hidden}
-.bgrid{display:grid;grid-template-columns:1fr 1fr;min-height:clamp(400px,44vw,500px)}
+   메시지의 3분의 2가 타이머 뒤에 숨습니다.
+   앞 버전은 글씨도 옷도 작아서 가운데가 텅 비었습니다 — 둘 다 키웁니다. */
+.banner{background:var(--cream);overflow:hidden;border-bottom:1px solid var(--line)}
+.bgrid{display:grid;grid-template-columns:1.04fr .96fr;min-height:clamp(460px,56vw,640px)}
 
 .btext{
   background:var(--cream);
   display:flex;align-items:center;
-  padding:clamp(34px,4.4vw,58px) clamp(24px,3.4vw,48px)
-          clamp(34px,4.4vw,58px) max(var(--pad), calc((100vw - 1180px) / 2 + var(--pad)));
+  padding:clamp(44px,6vw,88px) clamp(28px,4vw,64px)
+          clamp(44px,6vw,88px) max(var(--pad), calc((100vw - 1180px) / 2 + var(--pad)));
 }
-.binner{max-width:21.5em}
-.binner h1{font-size:clamp(32px,4.6vw,54px)}
-.binner .lede{margin-top:18px;font-size:clamp(15px,1.55vw,17px);max-width:24em}
-.binner .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(24px,3vw,34px)}
-.binner .cta .btn.lg{padding:16px 26px;font-size:15px}
+.binner{max-width:min(100%,34em)}
+.binner h1{font-size:clamp(36px,5.6vw,66px);line-height:1.26;letter-spacing:-.012em}
+.binner .lede{margin-top:22px;font-size:clamp(15.5px,1.5vw,17.5px);max-width:23em}
+.binner .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:clamp(28px,3.4vw,40px)}
+.binner .cta .btn.lg{padding:17px 30px;font-size:15px}
+
+/* 히어로 밑에 붙는 규격 한 줄 — 사진이 없으니 숫자가 사진 노릇을 합니다 */
+.bspec{
+  display:flex;flex-wrap:wrap;gap:6px 26px;margin:clamp(26px,3vw,34px) 0 0;
+  padding-top:clamp(18px,2.2vw,24px);border-top:1px solid var(--line);
+  list-style:none;
+}
+.bspec li{display:flex;align-items:baseline;gap:8px;font-size:13px;color:var(--ink2)}
+.bspec .k{font-size:12px;color:var(--ash);font-weight:500}
+.bspec li{font-variant-numeric:tabular-nums}
 
 .bmedia{
   position:relative;overflow:hidden;display:grid;place-items:center;
-  /* 헤더가 하늘인데 여기까지 파랗게 두면 파랑이 아무 데나 반복됩니다 */
-  background:var(--linen);
+  background:var(--linen);border-left:1px solid var(--line);
 }
-.bmedia .figure{width:60%;max-width:270px}
+.bmedia .figure{width:68%;max-width:420px}
 .bmedia .stamp{
-  position:absolute;left:16px;top:16px;z-index:2;max-width:calc(100% - 32px);
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;
-  color:var(--ink);background:color-mix(in srgb,var(--cream) 84%,transparent);
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  padding:6px 11px;border-radius:100px;white-space:nowrap;
+  position:absolute;left:auto;right:18px;bottom:15px;top:auto;z-index:2;
+  font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0;
+  color:var(--ash);background:none;
+  backdrop-filter:none;-webkit-backdrop-filter:none;
+  padding:0;border-radius:0;white-space:nowrap;
 }
 @media(max-width:880px){
   .bgrid{grid-template-columns:1fr;min-height:0}
-  .bmedia{aspect-ratio:5/4;order:-1}
-  .bmedia .figure{width:44%}
-  .btext{padding:clamp(26px,6vw,40px) var(--pad) clamp(34px,7vw,46px)}
+  .bmedia{aspect-ratio:5/4;order:-1;border-left:0;border-bottom:1px solid var(--line)}
+  .bmedia .figure{width:46%}
+  .btext{padding:clamp(30px,7vw,44px) var(--pad) clamp(36px,8vw,50px)}
   .binner{max-width:none}
 }
 
@@ -1038,13 +1075,11 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
   background:var(--linen);display:grid;place-items:center;
   box-shadow:var(--shadow-s);
 }
-.fbig .figure{width:78%;max-width:230px}
+.fbig .figure{width:76%;max-width:262px}
 .ftag{
   position:absolute;left:12px;bottom:12px;
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;
-  background:color-mix(in srgb,var(--cream) 86%,transparent);
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  color:var(--ink);padding:5px 10px;border-radius:100px;white-space:nowrap;
+  font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0;
+  background:none;color:var(--ash);padding:0;border-radius:0;white-space:nowrap;
 }
 
 .finfo .cat{
@@ -1071,8 +1106,8 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
   background:var(--card);border:1px solid var(--line);
 }
 .fprice .pk{
-  font-family:var(--mono);font-size:10px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ash);display:block;
+  font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:0;
+  text-transform:none;color:var(--ash);display:block;
 }
 .fprice b{
   display:block;margin-top:6px;font-size:22px;font-weight:700;
@@ -1090,24 +1125,24 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
   display:flex;flex-direction:column;gap:7px;
 }
 .soon .mn{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ash);
+  font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:0;
+  text-transform:none;color:var(--ash);
 }
 .soon h3{font-size:18px}
 .soon p{margin:0;font-size:14px;line-height:1.75;color:var(--ink2);text-wrap:pretty}
 
 /* 가격 옆 '예상가' — 공장 견적 전 숫자라는 걸 값에서 떼지 않습니다 */
 .price em{
-  font-style:normal;font-family:var(--mono);font-size:9px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ash);margin-left:6px;vertical-align:2px;
+  font-style:normal;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0;
+  color:var(--ash);margin-left:7px;vertical-align:1px;
 }
 
 /* 대기 신청이 아직 서버에 안 붙었다는 경고. 붙이는 날 이 규칙과 문구를 같이 지웁니다. */
 .joinwarn{
-  margin:16px auto 0;max-width:30em;font-size:13px;line-height:1.7;
-  color:var(--ink2);
-  padding:10px 16px;border-radius:100px;
-  background:var(--sand);border:1px dashed var(--line2);
+  margin:20px auto 0;max-width:30em;font-size:12.5px;line-height:1.75;
+  color:var(--ash);
+  padding:14px 0 0;border-radius:0;
+  background:none;border:0;border-top:1px solid var(--line2);
 }
 .panel.plain .joinwarn{background:var(--card)}
 
@@ -1197,15 +1232,15 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 
 
 /* ==========================================================================
-   카드 그리드 — 흰 바탕 위 같은 모양 카드의 반복으로 페이지를 짭니다.
-   섹션마다 배경색이 바뀌거나 레이아웃이 제각각이면 정돈돼 보이지 않습니다.
+   면과 선 — 둥근 카드를 반복하는 대신, 얇은 선으로 구획합니다.
+   카드 스물이 그림자를 달고 떠 있으면 업무용 화면처럼 보입니다.
    ========================================================================== */
 
 .card{
   background:var(--card);
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:clamp(24px,3vw,34px);
+  border-radius:2px;
+  padding:clamp(24px,3vw,36px);
 }
 .card.pad0{padding:0;overflow:hidden}
 
@@ -1214,10 +1249,10 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 .card .ch h3{margin:0}
 .card .ch p{margin:8px 0 0;font-size:14px;line-height:1.8;color:var(--ink2);text-wrap:pretty}
 
-/* 섹션 머리 — 카드 위에 놓입니다 */
-.gh{margin-bottom:clamp(18px,2.2vw,26px)}
+/* 섹션 머리 */
+.gh{margin-bottom:clamp(20px,2.6vw,32px);max-width:44em}
 .gh h2{margin:0}
-.gh p{margin:10px 0 0;font-size:15.5px;line-height:1.8;color:var(--ink2);max-width:38em;text-wrap:pretty}
+.gh p{margin:14px 0 0;font-size:16px;line-height:1.85;color:var(--ink2);max-width:36em;text-wrap:pretty}
 
 /* 반복 그리드 */
 .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.6vw,18px)}
@@ -1228,71 +1263,78 @@ a.mcard:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:tra
 }
 @media(max-width:560px){
   .g2,.g3{grid-template-columns:1fr}
-  /* 사실 카드 넷은 한 줄씩 쌓으면 화면을 너무 먹습니다 */
   .g4{grid-template-columns:repeat(2,1fr)}
-  .fact{padding:18px 10px}
-  .fact b{font-size:13.5px}
-  .fact span{font-size:12px}
 }
 
-/* 링크가 되는 카드 */
+/* 링크가 되는 카드 — 뜨지 않고, 테두리만 먹으로 바뀝니다 */
 a.card{
   text-decoration:none;color:inherit;display:flex;flex-direction:column;
-  transition:border-color .16s ease,box-shadow .16s ease,transform .16s ease;
+  transition:border-color .18s ease,background .18s ease;
 }
-a.card:hover{border-color:var(--line2);box-shadow:var(--shadow-m);transform:translateY(-2px)}
-@media (prefers-reduced-motion:reduce){a.card:hover{transform:none}}
-a.card .go{margin-top:auto;padding-top:14px;font-size:14px;font-weight:700;color:var(--accent)}
-a.card .go::after{content:" 92"}
+a.card:hover{border-color:var(--ink);box-shadow:none;transform:none;background:var(--card)}
+a.card .go{
+  margin-top:auto;padding-top:18px;font-size:13.5px;font-weight:600;color:var(--ink);
+  display:inline-flex;align-items:center;gap:7px;
+}
+a.card .go::after{content:"→";color:var(--thread);font-weight:400}
 
-/* 신뢰 카드 — 숫자·사실 한 줄짜리 */
-.fact{text-align:center;padding:22px 16px}
-.fact b{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em}
-.fact span{display:block;margin-top:5px;font-size:13px;color:var(--ash)}
+/* 사실 네 개 — 카드 넷이 아니라, 위아래 선 사이를 세로선으로 나눈 한 줄 */
+.g4.facts{gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.fact{
+  border:0;border-radius:0;background:none;box-shadow:none;
+  text-align:left;padding:26px 26px 26px 0;
+  border-right:1px solid var(--line);
+}
+.facts .fact:last-child{border-right:0}
+.fact b{display:block;font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.5}
+.fact span{display:block;margin-top:6px;font-size:13px;color:var(--ash);line-height:1.6}
+@media(max-width:900px){
+  .facts .fact:nth-child(2n){border-right:0}
+  .facts .fact:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .fact{padding:22px 20px 22px 0}
+}
 
-/* -------------------------------------------------- 카드 안 배치 ------- */
-/* 딱딱한 기업 그리드가 되지 않게: 모서리를 넉넉히 굴리고,
-   카드 크기에 변화를 주고, 옷이 놓이는 안쪽은 원단색으로 둡니다. */
-.card{border-radius:20px}
-.panel.tight{padding-top:clamp(26px,3vw,40px);padding-bottom:0}
+.panel.tight{padding-top:clamp(28px,3.4vw,44px);padding-bottom:0}
 
-.fact{padding:24px 16px}
-
-/* 첫 생산 — 큰 카드 하나. 왼쪽 옷, 오른쪽 정보 */
+/* 첫 생산 — 큰 면 하나. 왼쪽 옷, 오른쪽 정보 */
 .feat{display:grid;grid-template-columns:1.02fr .98fr;align-items:stretch}
 @media(max-width:940px){.feat{grid-template-columns:1fr}}
 .feat .fart{
   display:grid;grid-template-columns:1fr 1fr;gap:1px;
   background:var(--line);margin:0;
 }
-.feat .fbig{border-radius:0;box-shadow:none;aspect-ratio:auto;min-height:340px}
-.feat .finfo{padding:clamp(26px,3.2vw,40px);border-left:1px solid var(--line)}
+.feat .fbig{border-radius:0;box-shadow:none;aspect-ratio:auto;min-height:380px}
+.feat .finfo{padding:clamp(28px,3.4vw,44px);border-left:1px solid var(--line)}
 @media(max-width:940px){
   .feat .finfo{border-left:0;border-top:1px solid var(--line)}
-  .feat .fbig{min-height:250px}
+  .feat .fbig{min-height:260px}
 }
 
-/* 뒤집어 입어도 되는 옷 카드 */
+/* 뒤집어 입어도 되는 옷 */
 .rvcard .rvfig{margin:0 auto}
 .rvcard .rvpts{margin-top:clamp(24px,3vw,34px)}
 .rvcard .rvnote{margin-bottom:0}
 
-/* 사이즈 카드 */
+/* 사이즈 */
 .ladcard .ladder{margin-top:0}
 .ladcard .ladnote{margin-bottom:0}
 
-/* 다음에 만들 것 */
-.card.soon{padding:clamp(22px,2.6vw,28px);border-top:1px solid var(--line);gap:6px;display:flex;flex-direction:column}
+/* 다음에 만들 것 — 테두리 대신 위쪽 먹선 하나로 세웁니다 */
+.card.soon{
+  padding:26px 0 0;border:0;border-top:1px solid var(--ink);border-radius:0;
+  background:none;gap:8px;display:flex;flex-direction:column;
+}
 .card.soon h3{margin-top:2px}
 .card.soon p{margin:0;font-size:14px;line-height:1.8;color:var(--ink2);text-wrap:pretty}
 .card .cat{
-  font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:0;color:var(--accent);
+  font-family:var(--mono);font-weight:500;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--thread);
 }
 
 /* 링크 카드 안쪽 */
-a.card h3{margin:0 0 8px}
+a.card h3{margin:0 0 10px}
 a.card p{margin:0;font-size:14px;line-height:1.8;color:var(--ink2);text-wrap:pretty}
 
-/* 대기자 카드 */
-.joincard{padding:clamp(34px,4.4vw,56px)}
+/* 대기자 */
+.joincard{padding:0;background:none;border:0;border-radius:0}
 .joincard .join{margin:0}

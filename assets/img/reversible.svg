@@ -9,12 +9,13 @@
       .seam{fill:none;stroke:var(--rv-line,#23201C);stroke-width:1.2;stroke-dasharray:4 3;opacity:.5}
       .flat{fill:none;stroke:var(--rv-line,#23201C);stroke-width:1.4;opacity:.5}
       .snap{fill:var(--rv-line,#23201C)}
-      .thread{fill:none;stroke:var(--rv-thread,#C8B48F);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1.7 2.5}
-      .lead{fill:none;stroke:var(--rv-accent,#2E4057);stroke-width:1.3}
-      .ring{fill:none;stroke:var(--rv-accent,#2E4057);stroke-width:1.3}
-      .cap{fill:var(--rv-ink,#23201C);font-family:"Gothic A1","Malgun Gothic",sans-serif;font-size:15px;font-weight:700}
+      .thread{fill:none;stroke:var(--rv-thread,#A9843F);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1.7 2.5}
+      .lead{fill:none;stroke:var(--rv-accent,#8A6A2E);stroke-width:1.3}
+      .ring{fill:none;stroke:var(--rv-accent,#8A6A2E);stroke-width:1.3}
+      .cap{fill:var(--rv-ink,#23201C);font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;font-size:15px;font-weight:700}
       .mono{fill:var(--rv-ash,#948C81);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:1.4px}
-      .note{fill:var(--rv-accent,#2E4057);font-family:"Gothic A1","Malgun Gothic",sans-serif;font-size:12.5px;font-weight:700}
+      .kmono{fill:var(--rv-ash,#948C81);font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;font-size:11.5px}
+      .note{fill:var(--rv-accent,#8A6A2E);font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;font-size:12.5px;font-weight:700}
       .eq{fill:var(--rv-ash,#948C81);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:34px}
     </style>
 
@@ -50,7 +51,7 @@
 
   <!-- 같다 -->
   <text class="eq" x="450" y="196" text-anchor="middle">=</text>
-  <text class="mono" x="450" y="226" text-anchor="middle">양쪽 다 평평함</text>
+  <text class="kmono" x="450" y="226" text-anchor="middle">양쪽 다 평평함</text>
 
   <!-- ================================================= 오른쪽 · 안쪽 -->
   <!-- 뒤집은 면이라 좌우를 반전시켜 그립니다 -->
