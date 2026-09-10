@@ -201,7 +201,20 @@
       wipe: { grade: '보통', note: '살에 닿는 옷이라 물 튕기는 가공을 하지 않습니다. 대신 앞뒤 두 겹으로 촘촘히 짜서 얼룩이 안쪽까지 덜 스밉니다.' },
       price: { baby: 42000, kids: 59000, adult: 89000 },
       groups: ['baby', 'kids', 'adult'],
-      colors: ['cream', 'oat', 'mist', 'sage']
+      colors: ['cream', 'oat', 'mist', 'sage'],
+      photoColor: 'cream',
+      photos: [
+        'assets/img/sleep-baby-cream-front.jpg?v=20260910h',
+        'assets/img/sleep-baby-cream-back.jpg?v=20260910h',
+        'assets/img/sleep-top-oat-front.jpg?v=20260910h',
+        'assets/img/sleep-top-oat-back.jpg?v=20260910h'
+      ],
+      photoAlt: [
+        '아기 슬립수트 크림색 앞면. 목 뒤는 프린트 라벨이고 여밈을 오트색 실로 박았습니다.',
+        '아기 슬립수트 크림색 뒷면. 목 뒤에 택이 없습니다.',
+        '슬립 상의 오트색 앞면.',
+        '슬립 상의 오트색 뒷면.'
+      ]
     },
     'base-inner': {
       id: 'base-inner', cat: 'Base', name: '이너 · 보디수트',
@@ -326,8 +339,9 @@
       var img = document.createElement('img');
       img.className = 'photo';
       img.src = src;
-      img.alt = '';
+      img.alt = container.getAttribute('data-photo-alt') || '';
       container.appendChild(img);
+      container.classList.add('has-photo');
     };
     probe.src = src;
   }
@@ -647,15 +661,24 @@
     var thumbs = f('artthumbs');
 
     function paintArt() {
+      // 사진은 한 컬러로만 찍혀 있습니다. 다른 컬러를 고르면 색이 바뀌는
+      // 도식으로 돌아가야 스와치가 거짓말을 하지 않습니다.
+      var ph = (p.photos && color === p.photoColor) ? p.photos : [];
+      var pa = p.photoAlt || [];
+      var fallback = function (n) { return 'assets/img/' + p.id + '-' + n + '.jpg'; };
+
       main.textContent = '';
+      main.classList.remove('has-photo');
       main.appendChild(figure(p.art, colorHex(color)));
-      tryPhoto(main, 'assets/img/' + p.id + '-1.jpg');
+      if (pa[0]) main.setAttribute('data-photo-alt', pa[0]);
+      tryPhoto(main, ph[0] || fallback(1));
 
       thumbs.textContent = '';
       p.artAlt.forEach(function (sym, i) {
         var cell = el('div', 'artpanel');
         cell.appendChild(figure(sym, colorHex(color)));
-        tryPhoto(cell, 'assets/img/' + p.id + '-' + (i + 2) + '.jpg');
+        if (pa[i + 1]) cell.setAttribute('data-photo-alt', pa[i + 1]);
+        tryPhoto(cell, ph[i + 1] || fallback(i + 2));
         thumbs.appendChild(cell);
       });
     }
